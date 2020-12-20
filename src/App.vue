@@ -1,37 +1,82 @@
 <template>
-  <div id="app" class="bg-green-600 py-56 min-h-screen">
-    <div class="container mx-auto text-center px-8">
-      <h2 class="text-3xl lg:text-6xl font-bold mb-2 text-white">Welcome to Your Vue App</h2>
-      <h3 class="text-xl lg:text-4xl text-green-200">
-        Deployed to
-        <span
-          class="font-bold bg-clip-text text-transparent bg-gradient-to-br from-blue-400 via-purple-400 to-blue-500"
-        >DigitalOcean</span>
-      </h3>
-
-      <div class="flex justify-center space-x-2 mt-6 lg:mt-10">
-        <a
-          href="https://www.digitalocean.com/docs/app-platform"
-          class="inline-block py-2 lg:py-4 px-4 lg:px-8 rounded bg-green-500 hover:bg-green-400 text-green-100 shadow hover:shadow-2xl transition duration-300"
-        >View the Docs</a>
-        <a
-          href="https://cloud.digitalocean.com/apps"
-          class="inline-block py-2 lg:py-4 px-4 lg:px-8 rounded bg-yellow-400 hover:bg-yellow-300 text-yellow-800 shadow hover:shadow-2xl transition duration-300"
-        >View Your Dashboard</a>
-      </div>
-    </div>
+  <div id="app">
+    <navbar />
+    <!-- <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/">Dashboard</router-link> |
+      <router-link to="/balances">Balances</router-link> |
+      <router-link to="/about">About</router-link>
+    </div> -->
+    <router-view />
+    <!-- set progressbar -->
+    <!-- <vue-progress-bar></vue-progress-bar> -->
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar'
+
 export default {
-  name: "App",
-};
+  name: 'App',
+
+  components: {
+    Navbar,
+  },
+
+  watch: {
+    $route(to) {
+      document.title = to.meta.title || 'FinancialVue'
+    },
+  },
+  // mounted() {
+  //   //  [App.vue specific] When App.vue is finish loading finish the progress bar
+  //   this.$Progress.finish()
+  // },
+  // created() {
+  //   //  [App.vue specific] When App.vue is first loaded start the progress bar
+  //   this.$Progress.start()
+  //   //  hook the progress bar to start before we move router-view
+  //   // IDEA Page update bar starting sooner?
+  //   this.$router.beforeEach((to, from, next) => {
+  //     //  does the page we want to go to have a meta.progress object
+  //     if (to.meta.progress !== undefined) {
+  //       let meta = to.meta.progress
+  //       // parse meta tags
+  //       this.$Progress.parseMeta(meta)
+  //     }
+  //     //  start the progress bar
+  //     this.$Progress.start()
+  //     //  continue to next page
+  //     next()
+  //   })
+  //   //  hook the progress bar to finish after we've finished moving router-view
+  //   this.$router.afterEach(() => {
+  //     //  finish the progress bar
+  //     this.$Progress.finish()
+  //   })
+  // },
+}
 </script>
 
 <style>
 #app {
-  background-color: #268351;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232c945c' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+  /* text-align: center; */
+  /* color: #2c3e50; */
 }
+
+/* #nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+} */
 </style>
