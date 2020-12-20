@@ -1,7 +1,11 @@
+import Chart from 'chart.js'
 import { Bar, mixins } from 'vue-chartjs'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 const { reactiveProp } = mixins
+
+// careful! doing this affects all charts
+Chart.defaults.global.defaultFontSize = 20
 
 export default {
   extends: Bar,
