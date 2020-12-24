@@ -1,3 +1,6 @@
+[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for tracking personal finances. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the Plaid API.
+
+TODO !! Update client README with FinancialVue setup info. Focus on easy setup through DigitalOcean app platform.
 # Getting Started #
 
 These steps will get this sample application running for you using DigitalOcean.
@@ -5,6 +8,7 @@ These steps will get this sample application running for you using DigitalOcean.
 **Note: Following these steps will result in charges for the use of DigitalOcean services**
 
 ## Requirements
+
 
 * You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
     
@@ -30,15 +34,66 @@ As long as you left the default Autodeploy option enabled when you first launche
 
 You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/apps/.
 
+===========
 
-## Deleting the App #
+IDEA Add instructions for local development?
+### Client Setup for Development
 
-When you no longer need this sample application running live, you can delete it by following these steps:
-1. Visit the Apps control panel at https://cloud.digitalocean.com/apps
-1. Navigate to the sample-vuejs app
-1. Choose "Settings"->"Destroy"
+##### Set up API keys
 
-This will delete the app and destroy any underlying DigitalOcean resources
+Create an `.env` file in the client directory. Variables in this file will be loaded as environment variables. This file is ignored by Git. Fill out the following in the `client/.env` file:
 
-**Note: If you don't delete your app, charges for the use of DigitalOcean services will continue to accrue.**
+- `VUE_APP_PLAID_PUBLIC_KEY=`
+
+##### Install Dependencies
+
+Run `npm install` in the client folder to install Node.js dependencies.
+
+---
+
+### Running the App
+
+From the server folder, run `nodemon app.js` to start the backend server.
+
+Then from the client folder run `npm run serve` to compile and hot-reload the client.
+
+If everything has been done correctly, you will be able to
+
+- Open the client in a browser (https://localhost:8080)
+- Create a new user account
+- Connect to financial institutions through plaid (https://localhost:8080/#/user)
+- Update balance data (https://localhost:8080/#/balances)
+- Update transaction data (https://localhost:8080/#/transactions)
+
+---
+##### Client Configuration
+
+`npm run build` Compiles and minifies for production
+
+`npm run lint` Lints and fixes files
+
+
+---
+
+### Acknowledgments
+
+- [build-your-own-mint](https://github.com/yyx990803/build-your-own-mint) was the starting point for plaid server code.
+- [tab-tracker](https://github.com/codyseibert/tab-tracker) was a starting point for client/server data transfer.
+
+---
+
+### Screenshots
+
+Landing page<br>
+![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot1.png)
+
+Homepage charts<br>
+![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot9.png)
+
+Balances<br>
+![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot6.png)
+
+Transactions<br>
+![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot5.png)
+
 

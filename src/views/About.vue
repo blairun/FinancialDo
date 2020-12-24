@@ -9,8 +9,7 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
-// import mdFile from '../../../README.md'
-import mdFile from '../../README2.md'
+import mdFile from '../../README.md'
 
 export default {
   components: {

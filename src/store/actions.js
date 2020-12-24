@@ -190,7 +190,7 @@ export default {
   },
 
   async getMarketData({ commit }) {
-    // IDEA ! choose different market indexes to compare with net worth trend
+    // IDEA ! allow user to choose different market indexes to compare with net worth trend
     try {
       const data = (await BalancesService.market_data()).data
       // console.log(data)

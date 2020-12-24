@@ -85,6 +85,7 @@ export default {
           stacked100: { enable: true, replaceTooltipLabel: false },
         },
 
+        // FIXME !! Annotations and tooltips broke. Try it with real data?
         annotation: {
           annotations: [
             {
