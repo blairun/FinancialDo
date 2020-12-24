@@ -1,0 +1,88 @@
+databases:
+  - engine: PG
+    name: db
+    num_nodes: 1
+    size: db-s-dev-database
+    version: '12'
+name: financial-vue-do
+region: nyc
+services:
+  - environment_slug: node-js
+    envs:
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        value: ${db.DATABASE_URL}
+      - key: PLAID_CLIENT_ID
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: PLAID_PUBLIC_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: PLAID_SECRET_sandbox
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: TINGO_MARKET_DATA
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: APP_PORT
+        scope: RUN_AND_BUILD_TIME
+        value: '8080'
+      - key: DB_NAME
+        scope: RUN_AND_BUILD_TIME
+        value: ${db.DATABASE}
+      - key: DB_USER
+        scope: RUN_AND_BUILD_TIME
+        value: ${db.USERNAME}
+      - key: DB_PASS
+        scope: RUN_AND_BUILD_TIME
+        value: ${db.PASSWORD}
+      - key: DB_HOST
+        scope: RUN_AND_BUILD_TIME
+        value: ${db.HOSTNAME}
+      - key: DB_PORT
+        scope: RUN_AND_BUILD_TIME
+        value: ${db.PORT}
+      - key: JWT_SECRET
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: PLAID_SECRET_development
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        value:
+      - key: CLIENT_ADDRESS
+        scope: RUN_AND_BUILD_TIME
+        value: ${financial-vue-do.PUBLIC_URL}
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: blairun/FinancialVueBeDo
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    name: financial-vue-be-do
+    routes:
+      - path: /api
+    run_command: yarn start
+static_sites:
+  - build_command: yarn build
+    environment_slug: node-js
+    envs:
+      - key: VUE_APP_PLAID_PUBLIC_KEY
+        scope: BUILD_TIME
+        type: SECRET
+        value:
+      - key: VUE_APP_API
+        scope: BUILD_TIME
+        value: ${financial-vue-be-do.PUBLIC_URL}
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: blairun/FinancialVueDo
+    name: financial-vue-do
+    routes:
+      - path: /
