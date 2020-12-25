@@ -1,11 +1,13 @@
 <template>
   <div class="balance-table px-3">
-    <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
-      No Balance data yet 🤔<br /><br />
-      💰 Click the 'Add New Account' button to link your first account and view
-      balances 💰
-      <plaid-button class="mt-4" />
-    </b-card>
+    <delay :wait="2000">
+      <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
+        No Balance data yet 🤔<br /><br />
+        💰 Click the 'Add New Account' button to link your first account and
+        view balances 💰
+        <plaid-button class="mt-4" />
+      </b-card>
+    </delay>
 
     <!-- IDEA Ctrl click for quick balance calculator or shift click balances to see total -->
     <!-- these would be useful in the goal chart calcs too -->
@@ -74,10 +76,12 @@
 <script>
 import PlaidButton from '@/components/PlaidButton.vue'
 import dayjs from 'dayjs'
+import Delay from 'vue-delay'
 export default {
   name: 'balance-table',
   components: {
     PlaidButton,
+    Delay,
   },
   data() {
     return {

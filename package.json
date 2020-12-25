@@ -25,6 +25,7 @@
     "numeral": "^2.0.6",
     "popper.js": "^1.16.1",
     "vue-backtotop": "^1.6.1",
+    "vue-delay": "0.1.0",
     "vue-chartjs": "^3.5.0",
     "vue-markdown": "^2.2.4",
     "vue-plaid-link": "0.4.0",

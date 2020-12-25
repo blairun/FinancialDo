@@ -1,12 +1,13 @@
 <template>
   <div class="transaction-table px-3">
-    <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
-      No Transaction data yet 🤔<br /><br />
-      💸 Click the 'Add New Account' button to link your first account and view
-      transactions 💸
-      <plaid-button class="mt-4" />
-    </b-card>
-
+    <delay :wait="2000">
+      <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
+        No Transaction data yet 🤔<br /><br />
+        💸 Click the 'Add New Account' button to link your first account and
+        view transactions 💸
+        <plaid-button class="mt-4" />
+      </b-card>
+    </delay>
     <b-form-group class="mb-3">
       <b-input-group>
         <b-form-input
@@ -79,10 +80,12 @@
 <script>
 import numeral from 'numeral'
 import PlaidButton from '@/components/PlaidButton.vue'
+import Delay from 'vue-delay'
 export default {
   name: 'transaction-table',
   components: {
     PlaidButton,
+    Delay,
   },
   data() {
     return {
