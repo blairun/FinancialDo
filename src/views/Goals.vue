@@ -1,9 +1,9 @@
 <template>
-  <div class="goals pt-4">
+  <div class="goals pt-4 px-4">
     <chart-goals />
     <!-- TODO ! form to add/update goals -->
 
-    <b-card class="mx-4 mb-4" title="Edit Goals">
+    <b-card class="mb-4" title="Edit Goals">
       Under construction...
     </b-card>
   </div>

@@ -1,7 +1,7 @@
 import { HorizontalBar, mixins } from 'vue-chartjs'
-import chartAnnotation from 'chartjs-plugin-annotation'
-import chartDataLabels from 'chartjs-plugin-datalabels'
 import chartStacked100 from 'chartjs-plugin-stacked100'
+import chartDataLabels from 'chartjs-plugin-datalabels'
+import chartAnnotation from 'chartjs-plugin-annotation'
 
 const { reactiveProp } = mixins
 
@@ -10,10 +10,11 @@ export default {
   mixins: [reactiveProp],
   props: ['options'],
   mounted() {
+    // load stacked first since datalabels depend on it
     this.addPlugin({
-      chartAnnotation,
-      chartDataLabels,
       chartStacked100,
+      chartDataLabels,
+      chartAnnotation,
     })
     // this.chartData is created in the mixin.
     // If you want to pass options please create a local options object
