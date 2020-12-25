@@ -86,14 +86,14 @@ If everything has been done correctly, you will be able to
 #### Screenshots
 
 Homepage charts<br>
-![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Home.png)
+![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
 
 Balances<br>
-![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Balances.png)
+![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png)
 
 Transactions<br>
-![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Transactions.png)
+![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png)
 
-User Profile PageLanding page<br>
-![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20User%20Profile.png)
+User Profile Page<br>
+![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png)
 
