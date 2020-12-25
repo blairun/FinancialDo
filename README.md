@@ -1,7 +1,7 @@
 [FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for tracking personal finances. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the Plaid API.
 
 TODO !! Update client README with FinancialVue setup info. Focus on easy setup through DigitalOcean app platform.
-# Getting Started #
+## Getting Started
 
 These steps will get this sample application running for you using DigitalOcean.
 
@@ -14,17 +14,17 @@ These steps will get this sample application running for you using DigitalOcean.
     
 ## Forking the Sample App Source Code
 
-To use all the features of App Platform, you need to be running against your own copy of this application. To make a copy, click the Fork button above and follow the on-screen instructions. In this case, you'll be forking this repo as a starting point for your own app (see [Github documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) to learn more about forking repos.
+To use all the features of App Platform, you need to be running against your own copy of this application. To make a copy, click the Fork button above and follow the on-screen instructions. In this case, you'll be forking this repo as a starting point for your own app (see [Github documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) to learn more about forking repos.)
 
-After forking the repo, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/sample-vuejs`)
+After forking the repo, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`)
 
-**Note:** You can skip forking this repo and select the "Vue.js" sample from the app creation page, however do notice that certain features will be disabled.
+**Note:** You can skip forking this repo and still select "FinancialVueDo" from the app creation page, however do note that certain features will be disabled.
 
 ## Deploying the App ##
 
 Click this button to deploy the app to the DigitalOcean App Platform.
 
- [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/digitalocean/sample-vuejs/tree/main)
+ [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueDo/tree/main)
  
 ## Making Changes to Your App ##
 
@@ -37,21 +37,22 @@ You can learn more about the App Platform and how to manage and update your appl
 ===========
 
 IDEA Add instructions for local development?
-### Client Setup for Development
+## Client Setup for Development
 
-##### Set up API keys
+#### Set up API keys
 
 Create an `.env` file in the client directory. Variables in this file will be loaded as environment variables. This file is ignored by Git. Fill out the following in the `client/.env` file:
 
 - `VUE_APP_PLAID_PUBLIC_KEY=`
+- `VUE_APP_API=http://localhost:3000/`
 
-##### Install Dependencies
+#### Install Dependencies
 
 Run `npm install` in the client folder to install Node.js dependencies.
 
 ---
 
-### Running the App
+#### Running the App
 
 From the server folder, run `nodemon app.js` to start the backend server.
 
@@ -66,7 +67,7 @@ If everything has been done correctly, you will be able to
 - Update transaction data (https://localhost:8080/#/transactions)
 
 ---
-##### Client Configuration
+#### Client Configuration
 
 `npm run build` Compiles and minifies for production
 
@@ -75,25 +76,24 @@ If everything has been done correctly, you will be able to
 
 ---
 
-### Acknowledgments
+#### Acknowledgments
 
 - [build-your-own-mint](https://github.com/yyx990803/build-your-own-mint) was the starting point for plaid server code.
 - [tab-tracker](https://github.com/codyseibert/tab-tracker) was a starting point for client/server data transfer.
 
 ---
 
-### Screenshots
-
-Landing page<br>
-![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot1.png)
+#### Screenshots
 
 Homepage charts<br>
-![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot9.png)
+![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Home.png)
 
 Balances<br>
-![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot6.png)
+![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Balances.png)
 
 Transactions<br>
-![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVue/master/public/ScreenShot5.png)
+![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20Transactions.png)
 
+User Profile PageLanding page<br>
+![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVueDo/master/public/FinancialVue%20-%20User%20Profile.png)
 
