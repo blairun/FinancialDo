@@ -1,5 +1,5 @@
 <template>
-  <b-card id="cash" class="mx-4 mb-4" v-b-hover="handleHover">
+  <b-card id="cash" class="mb-4" v-b-hover="handleHover">
     <b-row class="mx-2">
       <b-card-title class="title" v-on:click="navigate">
         Monthly Cash Flow

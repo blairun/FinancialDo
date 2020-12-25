@@ -1,91 +1,92 @@
 <template>
   <div class="transaction-table px-3">
-    <delay :wait="2000">
-      <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
-        No Transaction data yet 🤔<br /><br />
-        💸 Click the 'Add New Account' button to link your first account and
-        view transactions 💸
-        <plaid-button class="mt-4" />
-      </b-card>
-    </delay>
-    <b-form-group class="mb-3">
-      <b-input-group>
-        <b-form-input
-          v-model="filter"
-          type="search"
-          id="filterInput"
-          placeholder="Type to Search"
-        ></b-form-input>
-        <b-input-group-append>
-          <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
-        </b-input-group-append>
-      </b-input-group>
-    </b-form-group>
+    <no-data-warning v-if="items.length === 0">
+      No Transaction data yet 🤔<br /><br />
+      💸 Click the 'Add New Account' button to link your first account and view
+      transactions 💸
+    </no-data-warning>
 
-    <b-table
-      responsive
-      small
-      striped
-      hover
-      borderless
-      head-variant="light"
-      :sort-desc.sync="sortDesc"
-      :sort-by.sync="sortBy"
-      :filter="filter"
-      :items="items"
-      :fields="fields"
-      @row-clicked="myRowClickHandler"
-      @head-clicked="customSort"
-      v-model="visibleRows"
-      custom-foot
-    >
-      <template v-slot:row-details="row">
-        <b-card class="text-center">
-          <b-table
-            small
-            hover
-            stacked
-            fixed
-            :items="[row.item]"
-            :fields="details"
-            class="text-left"
-          ></b-table>
+    <span v-if="items.length > 0">
+      <b-form-group class="mb-3">
+        <b-input-group>
+          <b-form-input
+            v-model="filter"
+            type="search"
+            id="filterInput"
+            placeholder="Type to Search"
+          ></b-form-input>
+          <b-input-group-append>
+            <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+          </b-input-group-append>
+        </b-input-group>
+      </b-form-group>
 
-          <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        </b-card>
-      </template>
-      <!-- calculate total for visble items -->
-      <!-- could also be a footer field slot instead -->
-      <template slot="bottom-row">
-        <td><b>Total</b></td>
-        <td></td>
-        <!-- this is a computed prop that adds up all the expenses in the visible rows -->
-        <td class="text-right bold">
-          <b>{{ totalAmount }}</b>
-        </td>
-      </template>
-      <!-- A custom formatted footer cell for field 'name' -->
-      <template v-slot:foot(name)="data">
-        <span class="text-danger">{{ data.label }}</span>
-      </template>
+      <b-table
+        responsive
+        small
+        striped
+        hover
+        borderless
+        head-variant="light"
+        :sort-desc.sync="sortDesc"
+        :sort-by.sync="sortBy"
+        :filter="filter"
+        :items="items"
+        :fields="fields"
+        @row-clicked="myRowClickHandler"
+        @head-clicked="customSort"
+        v-model="visibleRows"
+        custom-foot
+      >
+        <template v-slot:row-details="row">
+          <b-card class="text-center">
+            <b-table
+              small
+              hover
+              stacked
+              fixed
+              :items="[row.item]"
+              :fields="details"
+              class="text-left"
+            ></b-table>
 
-      <!-- Default fall-back custom formatted footer cell -->
-      <template v-slot:foot()="data">
-        <i>{{ data.label }}</i>
-      </template>
-    </b-table>
+            <b-button size="sm" @click="row.toggleDetails"
+              >Hide Details</b-button
+            >
+          </b-card>
+        </template>
+        <!-- calculate total for visble items -->
+        <!-- could also be a footer field slot instead -->
+        <template slot="bottom-row">
+          <td><b>Total</b></td>
+          <td></td>
+          <!-- this is a computed prop that adds up all the expenses in the visible rows -->
+          <td class="text-right bold">
+            <b>{{ totalAmount }}</b>
+          </td>
+        </template>
+        <!-- A custom formatted footer cell for field 'name' -->
+        <template v-slot:foot(name)="data">
+          <span class="text-danger">{{ data.label }}</span>
+        </template>
+
+        <!-- Default fall-back custom formatted footer cell -->
+        <template v-slot:foot()="data">
+          <i>{{ data.label }}</i>
+        </template>
+      </b-table>
+    </span>
   </div>
 </template>
 
 <script>
 import numeral from 'numeral'
-import PlaidButton from '@/components/PlaidButton.vue'
-import Delay from 'vue-delay'
+import NoDataWarning from '@/components/NoDataWarning.vue'
+
 export default {
   name: 'transaction-table',
   components: {
-    PlaidButton,
-    Delay,
+    NoDataWarning,
   },
   data() {
     return {

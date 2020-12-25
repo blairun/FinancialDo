@@ -1,15 +1,9 @@
 <template>
   <div id="app">
     <navbar />
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/">Dashboard</router-link> |
-      <router-link to="/balances">Balances</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view />
-    <!-- set progressbar -->
-    <!-- <vue-progress-bar></vue-progress-bar> -->
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -35,4 +29,16 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <b-card class="mx-4 mb-4" v-b-hover="handleHover">
+  <b-card class="mb-4" v-b-hover="handleHover">
     <b-row class="mx-2">
       <b-card-title class="title" v-on:click="navigate">
         {{ year }} Goals
@@ -53,20 +53,18 @@ export default {
           duration: 0,
         },
         plugins: {
-          // totalizer: [totalizer],
+          stacked100: { enable: true, replaceTooltipLabel: false },
+
           // Change options for ALL labels of THIS CHART
           datalabels: {
             formatter: (_value, context) => {
               const data = context.chart.data
+              // console.log(data)
               const { datasetIndex, dataIndex } = context
               return `${numeral(
                 data.originalData[datasetIndex][dataIndex]
               ).format('$0.0a')}`
             },
-            //   (${numeral(
-            //     data.calculatedData[datasetIndex][dataIndex] / 100
-            //   ).format("0%")})`;
-            // },
 
             anchor: 'start',
             align: 'end',
@@ -81,11 +79,9 @@ export default {
               },
             },
           },
-
-          stacked100: { enable: true, replaceTooltipLabel: false },
         },
 
-        // FIXME !! Annotations and tooltips broke. Try it with real data?
+        // FIXME !! Annotations broke. Try it with real data?
         annotation: {
           annotations: [
             {
@@ -132,6 +128,7 @@ export default {
           ],
           xAxes: [
             {
+              id: 'x-axis-0',
               stacked: true,
               ticks: {
                 display: false,

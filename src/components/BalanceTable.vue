@@ -1,87 +1,87 @@
 <template>
   <div class="balance-table px-3">
-    <delay :wait="2000">
-      <b-card v-if="items.length === 0" class="mb-4 mt-2" align-h="center">
-        No Balance data yet 🤔<br /><br />
-        💰 Click the 'Add New Account' button to link your first account and
-        view balances 💰
-        <plaid-button class="mt-4" />
-      </b-card>
-    </delay>
+    <no-data-warning v-if="items.length === 0">
+      No Balance data yet 🤔<br /><br />
+      💰 Click the 'Add New Account' button to link your first account and view
+      balances 💰
+    </no-data-warning>
 
     <!-- IDEA Ctrl click for quick balance calculator or shift click balances to see total -->
     <!-- these would be useful in the goal chart calcs too -->
     <!-- Another idea would be to add calculated columns to balance/metadata table -->
-    <b-table
-      responsive
-      small
-      striped
-      hover
-      borderless
-      head-variant="light"
-      :sort-by.sync="sortBy"
-      :items="items"
-      :fields="fields"
-      @row-clicked="myRowClickHandler"
-    >
-      <template v-slot:row-details="row">
-        <b-card class="text-center">
-          <b-table
-            small
-            hover
-            stacked
-            fixed
-            :items="[row.item]"
-            :fields="details"
-            class="text-left"
-          >
-            <!-- Adds link to institution, if it exists -->
-            <template v-slot:cell(Institution)="data">
-              <!-- {{ data.item }} -->
-              <span v-if="data.item.Link === null">{{
-                data.item.Institution
-              }}</span>
-              <b-link v-else :href="data.item.Link" target="_blank">{{
-                data.item.Institution
-              }}</b-link>
-            </template>
-          </b-table>
-          <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        </b-card>
-      </template>
+    <span v-if="items.length > 0">
+      <b-table
+        responsive
+        small
+        striped
+        hover
+        borderless
+        head-variant="light"
+        :sort-by.sync="sortBy"
+        :items="items"
+        :fields="fields"
+        @row-clicked="myRowClickHandler"
+      >
+        <template v-slot:row-details="row">
+          <b-card class="text-center">
+            <b-table
+              small
+              hover
+              stacked
+              fixed
+              :items="[row.item]"
+              :fields="details"
+              class="text-left"
+            >
+              <!-- Adds link to institution, if it exists -->
+              <template v-slot:cell(Institution)="data">
+                <!-- {{ data.item }} -->
+                <span v-if="data.item.Link === null">{{
+                  data.item.Institution
+                }}</span>
+                <b-link v-else :href="data.item.Link" target="_blank">{{
+                  data.item.Institution
+                }}</b-link>
+              </template>
+            </b-table>
+            <b-button size="sm" @click="row.toggleDetails"
+              >Hide Details</b-button
+            >
+          </b-card>
+        </template>
 
-      <!-- Custom formatted snapshot column comparing past balances to current-->
-      <template v-slot:cell(CurrentPastFormatted)="data">
-        <!-- {{ data.item.CurrentPastFormatted }} -->
-        <span v-if="data.item.CurrentPastDifference > 0" class="text-success">
-          {{ data.item.CurrentPastFormatted }}
-          {{ data.item.CurrentPastSymbol }}
-        </span>
-        <span
-          v-else-if="data.item.CurrentPastDifference < 0"
-          class="text-danger"
-        >
-          {{ data.item.CurrentPastFormatted }}
-          {{ data.item.CurrentPastSymbol }}
-        </span>
-        <span v-else class="text-muted">
-          {{ data.item.CurrentPastFormatted }}
-          {{ data.item.CurrentPastSymbol }}
-        </span>
-      </template>
-    </b-table>
+        <!-- Custom formatted snapshot column comparing past balances to current-->
+        <template v-slot:cell(CurrentPastFormatted)="data">
+          <!-- {{ data.item.CurrentPastFormatted }} -->
+          <span v-if="data.item.CurrentPastDifference > 0" class="text-success">
+            {{ data.item.CurrentPastFormatted }}
+            {{ data.item.CurrentPastSymbol }}
+          </span>
+          <span
+            v-else-if="data.item.CurrentPastDifference < 0"
+            class="text-danger"
+          >
+            {{ data.item.CurrentPastFormatted }}
+            {{ data.item.CurrentPastSymbol }}
+          </span>
+          <span v-else class="text-muted">
+            {{ data.item.CurrentPastFormatted }}
+            {{ data.item.CurrentPastSymbol }}
+          </span>
+        </template>
+      </b-table>
+    </span>
   </div>
 </template>
 
 <script>
-import PlaidButton from '@/components/PlaidButton.vue'
 import dayjs from 'dayjs'
-import Delay from 'vue-delay'
+import NoDataWarning from '@/components/NoDataWarning.vue'
+
 export default {
   name: 'balance-table',
   components: {
-    PlaidButton,
-    Delay,
+    NoDataWarning,
   },
   data() {
     return {
@@ -156,5 +156,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>
