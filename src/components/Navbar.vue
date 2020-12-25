@@ -1,6 +1,5 @@
 <template>
   <div class="mb-5">
-    <!-- IDEA random cycle through colors -->
     <b-navbar
       toggleable="lg"
       variant="info"

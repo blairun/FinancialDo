@@ -29,9 +29,6 @@ export default {
     ChartBar,
   },
 
-  // http://learnjsdata.com/index.html
-  // IDEA clicking chart takes you to transactions
-
   data() {
     return {
       isHovered: false,

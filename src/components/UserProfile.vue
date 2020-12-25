@@ -2,7 +2,7 @@
   <!-- profile page allowing updates to username, email, password -->
   <div>
     <b-card
-      class="mx-sm-auto mx-4 mb-4"
+      class="mx-lg-auto mx-4 mb-4"
       align-h="center"
       style="max-width: 1000px"
       title="Update Profile"

@@ -20,7 +20,6 @@
         v-bind="{ onSuccess, onExit }"
         :token="$store.getters.appText.publicToken"
       >
-        <!-- FIXME dist client doesn't update publicToken properly -->
         <!-- maybe clear process.env.PLAID_broken_public_token on server side every time? -->
         <template slot="button" slot-scope="props">
           <b-button @click="props.onClick">
