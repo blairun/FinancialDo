@@ -1,89 +1,91 @@
-[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for tracking personal finances. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the Plaid API.
+[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/). The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
 
-TODO !! Update client README with FinancialVue setup info. Focus on easy setup through DigitalOcean app platform.
+---
 ## Getting Started
 
-These steps will get this sample application running for you using DigitalOcean.
+These steps will get this application running for you using DigitalOcean. **Note that following these steps will result in charges for the use of DigitalOcean services**
 
-**Note: Following these steps will result in charges for the use of DigitalOcean services**
 
 ## Requirements
 
+#### DigitalOCean
+You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
 
-* You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
-    
-## Forking the Sample App Source Code
+#### Plaid
+You will need to sign up for [Plaid](https://plaid.com/) and apply for the development plan. It may take a day to get approved. Sign up is free and limited to 100 items (i.e. banks), so it should be more than enough for personal use.
 
-To use all the features of App Platform, you need to be running against your own copy of this application. To make a copy, click the Fork button above and follow the on-screen instructions. In this case, you'll be forking this repo as a starting point for your own app (see [Github documentation](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) to learn more about forking repos.)
+## Forking the Source Code
 
-After forking the repo, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`)
+To use all the features of App Platform, you need to be running against your own copy of this code. In this case, you'll be forking two repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
 
-**Note:** You can skip forking this repo and still select "FinancialVueDo" from the app creation page, however do note that certain features will be disabled.
+After forking the repos, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`).
 
-## Deploying the App ##
+## Deploying the App
 
-Click this button to deploy the app to the DigitalOcean App Platform.
+#### Deploy Frontend Client
+
+Click this button to deploy the **frontend client** to the DigitalOcean App Platform.
 
  [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueDo/tree/main)
+
+When prompted, add the following environment variables
+
+- `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
+- `VUE_APP_API=${financial-vue-be-do.PUBLIC_URL}`
+
+#### Deploy PostgreSQL Database
+
+From your newly created app, choose add component, then add database.
  
-## Making Changes to Your App ##
+#### Deploy Backend Server
 
-As long as you left the default Autodeploy option enabled when you first launched this app, you can now make code changes and see them automatically reflected in your live application. During these automatic deployments, your application will never pause or stop serving request because the App Platform offers zero-downtime deployments.
+From your newly created app, choose add component, then add web service.
 
-## Learn More ##
+**Remove ?**
+Click this button to deploy the **backend server** to the DigitalOcean App Platform.
 
-You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/apps/.
+ [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueBeDo/tree/main)
 
-===========
+When prompted, add the following environment variables. 
 
-IDEA Add instructions for local development?
-## Client Setup for Development
+- `PLAID_CLIENT_ID=` (see https://dashboard.plaid.com/overview/development)
+- `PLAID_PUBLIC_KEY=`
+- `PLAID_SECRET_development=`
+- `PLAID_SECRET_sandbox=`
+- `PLAID_ENV=sandbox`
+- `TIINGO_API_KEY=` (optional, see https://api.tiingo.com/)
+- `APP_PORT=8080`
+- `DB_NAME=${db.DATABASE}` (db connection params are on the DigitalOcean app dashboard)
+- `DB_USER=${db.USERNAME}`
+- `DB_PASS=${db.PASSWORD}`
+- `DB_HOST=${db.HOSTNAME}`
+- `DB_PORT=${db.PORT}`
+- `JWT_SECRET=` (password chosen by developer)
+- `CLIENT_ADDRESS=${financial-vue-do.PUBLIC_URL}`
 
-#### Set up API keys
 
-Create an `.env` file in the client directory. Variables in this file will be loaded as environment variables. This file is ignored by Git. Fill out the following in the `client/.env` file:
+## Making Changes to Your App
 
-- `VUE_APP_PLAID_PUBLIC_KEY=`
+As long as you left the default Autodeploy option enabled when you first launched this app, you can now make code changes and see them automatically reflected in your live application. You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/apps/.
+
+---
+
+## Local development
+
+**Note: This app needs to run in conjunction with the backend server: [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo).**
+
+Run `yarn install` in the client folder to install Node.js dependencies.
+
+Create an `.env` file in the root directory. Variables in this file will be loaded as environment variables. Add these variables:
+
+- `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
 - `VUE_APP_API=http://localhost:3000/`
 
-#### Install Dependencies
-
-Run `npm install` in the client folder to install Node.js dependencies.
+Then from the client folder run `vue-cli-service serve` to compile and hot-reload the client.
 
 ---
 
-#### Running the App
-
-From the server folder, run `nodemon app.js` to start the backend server.
-
-Then from the client folder run `npm run serve` to compile and hot-reload the client.
-
-If everything has been done correctly, you will be able to
-
-- Open the client in a browser (https://localhost:8080)
-- Create a new user account
-- Connect to financial institutions through plaid (https://localhost:8080/#/user)
-- Update balance data (https://localhost:8080/#/balances)
-- Update transaction data (https://localhost:8080/#/transactions)
-
----
-#### Client Configuration
-
-`npm run build` Compiles and minifies for production
-
-`npm run lint` Lints and fixes files
-
-
----
-
-#### Acknowledgments
-
-- [build-your-own-mint](https://github.com/yyx990803/build-your-own-mint) was the starting point for plaid server code.
-- [tab-tracker](https://github.com/codyseibert/tab-tracker) was a starting point for client/server data transfer.
-
----
-
-#### Screenshots
+## Screenshots
 
 Homepage charts<br>
 ![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
@@ -97,3 +99,8 @@ Transactions<br>
 User Profile Page<br>
 ![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png)
 
+---
+## Acknowledgments
+
+- [build-your-own-mint](https://github.com/yyx990803/build-your-own-mint) was the starting point for plaid server code.
+- [tab-tracker](https://github.com/codyseibert/tab-tracker) was a starting point for client/server data transfer.

@@ -24,7 +24,7 @@ services:
         scope: RUN_AND_BUILD_TIME
         type: SECRET
         value:
-      - key: TINGO_MARKET_DATA
+      - key: TIINGO_API_KEY
         scope: RUN_AND_BUILD_TIME
         type: SECRET
         value:

@@ -1,9 +1,7 @@
 spec:
   name: FinancialVueDo
-  services:
-    - build_command: yarn build
-      environment_slug: node-js
-      git:
-        branch: main
-        repo_clone_url: https://github.com/blairun/FinancialVueBeDo
-      name: FinancialVueDo
+  static_sites:
+  - git:
+     branch: main
+     repo_clone_url: https://github.com/blairun/FinancialVueDo.git
+   name: FinancialVueDo
