@@ -1,11 +1,7 @@
 <template>
   <div class="home pt-4 px-4">
     <refreshed-timer />
-    <no-data-warning v-if="items.length === 0">
-      No account data yet 🤔<br /><br />
-      📊 Click the 'Add New Account' button to link your first account and view
-      charts about your data 📊
-    </no-data-warning>
+    <no-data-warning v-if="items.length === 0" />
     <span v-if="items.length > 0">
       <chart-cash-flow />
       <chart-cash-pie />
