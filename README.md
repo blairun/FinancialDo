@@ -8,7 +8,7 @@ These steps will get this application running for you using DigitalOcean. **Note
 
 ## Requirements
 
-#### DigitalOCean
+#### DigitalOcean
 You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
 
 #### Plaid
@@ -24,7 +24,7 @@ After forking the repos, you should now be viewing this README in your own githu
 
 #### Deploy Frontend Client
 
-Click this button to deploy the **frontend client** to the DigitalOcean App Platform.
+Click this button to deploy the frontend client to the DigitalOcean App Platform.
 
  [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueDo/tree/main)
 
