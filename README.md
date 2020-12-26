@@ -22,31 +22,13 @@ After forking the repos, you should now be viewing this README in your own githu
 
 ## Deploying the App
 
-#### Deploy Frontend Client
+#### Deploy Backend Server and Database
 
-Click this button to deploy the frontend client to the DigitalOcean App Platform.
-
- [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueDo/tree/main)
-
-When prompted, add the following environment variables
-
-- `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
-- `VUE_APP_API=${financial-vue-be-do.PUBLIC_URL}`
-
-#### Deploy PostgreSQL Database
-
-From your newly created app, choose add component, then add database.
- 
-#### Deploy Backend Server
-
-From your newly created app, choose add component, then add web service.
-
-**Remove ?**
-Click this button to deploy the **backend server** to the DigitalOcean App Platform.
+Click this button to deploy the backend server and the database to the DigitalOcean App Platform.
 
  [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/blairun/FinancialVueBeDo/tree/main)
 
-When prompted, add the following environment variables. 
+When prompted, fill in the following environment variables:
 
 - `PLAID_CLIENT_ID=` (see https://dashboard.plaid.com/overview/development)
 - `PLAID_PUBLIC_KEY=`
@@ -62,6 +44,15 @@ When prompted, add the following environment variables.
 - `DB_PORT=${db.PORT}`
 - `JWT_SECRET=` (password chosen by developer)
 - `CLIENT_ADDRESS=${financial-vue-do.PUBLIC_URL}`
+
+#### Deploy Frontend Server
+
+From your newly created app, choose "add component", then add this frontend client that you forked.
+
+When prompted for environmental variables, add the following:
+
+- `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
+- `VUE_APP_API=${financial-vue-be-do.PUBLIC_URL}`
 
 
 ## Making Changes to Your App

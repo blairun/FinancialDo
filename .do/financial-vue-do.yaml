@@ -9,9 +9,6 @@ region: nyc
 services:
   - environment_slug: node-js
     envs:
-      - key: DATABASE_URL
-        scope: RUN_TIME
-        value: ${db.DATABASE_URL}
       - key: PLAID_CLIENT_ID
         scope: RUN_AND_BUILD_TIME
         type: SECRET
