@@ -16,7 +16,7 @@ You will need to sign up for [Plaid](https://plaid.com/) and apply for the devel
 
 ## Forking the Source Code
 
-To use all the features of App Platform, you need to be running against your own copy of this code. In this case, you'll be forking two repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
+To use all the features of App Platform, you need to be running against your own copy (github fork) of this code. In this case, you'll be forking two repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
 
 After forking the repos, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`).
 
@@ -34,26 +34,28 @@ When prompted, fill in the following environment variables:
 - `PLAID_PUBLIC_KEY=`
 - `PLAID_SECRET_development=`
 - `PLAID_SECRET_sandbox=`
-- `PLAID_ENV=sandbox`
+- `JWT_SECRET=` (password chosen by developer)
 - `TIINGO_API_KEY=` (optional, see https://api.tiingo.com/)
-- `APP_PORT=8080`
 - `DB_NAME=${db.DATABASE}` (db connection params are on the DigitalOcean app dashboard)
 - `DB_USER=${db.USERNAME}`
 - `DB_PASS=${db.PASSWORD}`
 - `DB_HOST=${db.HOSTNAME}`
 - `DB_PORT=${db.PORT}`
-- `JWT_SECRET=` (password chosen by developer)
+- `APP_PORT=8080`
 - `CLIENT_ADDRESS=${financial-vue-do.PUBLIC_URL}`
 
 #### Deploy Frontend Server
 
-From your newly created app, choose "add component", then add this frontend client that you forked.
+From your newly created app, choose "Components, + Create Component, Static Site". Then choose the "FinancialVueDo" frontend client that you forked.
 
-When prompted for environmental variables, add the following:
+When prompted for Branch, choose  "main".
+
+Edit HTTP Routes, and set the Routes to `/`.
+
+Edit Environment Variables by adding the following:
 
 - `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
 - `VUE_APP_API=${financial-vue-be-do.PUBLIC_URL}`
-
 
 ## Making Changes to Your App
 
