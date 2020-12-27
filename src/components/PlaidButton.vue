@@ -11,7 +11,26 @@
         <b-button @click="props.onClick" style="width: 200px"
           >Add New Account</b-button
         >
-        <!-- <a @click="props.onClick">Custom Open Element</a> -->
+        <!-- Make it obvious to user when they are in Plaid sandbox mode vs dev mode -->
+        <span style="width: 200px">
+          <div
+            v-if="$store.state.user.plaidEnv === 'sandbox'"
+            class="text-info"
+          >
+            Your are using the<br />
+            Plaid sandbox environment.<br />
+            Use these credentials »<br />
+            username: user_good<br />
+            password: pass_good
+          </div>
+          <div v-else class="text-danger">
+            You are using the<br />
+            Plaid dev environment.<br />
+            Use real credentials.<br />
+            This will deplete one<br />
+            of your 100 Plaid Items.
+          </div>
+        </span>
       </template>
     </plaid-link>
   </section>
@@ -24,9 +43,6 @@ import AccountsService from '../services/AccountsService'
 export default {
   components: { PlaidLink },
   data() {
-    // replace public key with env var
-    // in Vue cli 3, only variables that start with VUE_APP_ will be loaded.
-    // console.log(process.env.VUE_APP_PLAID_PUBLIC_KEY)
     return {
       plaidPublicKey: process.env.VUE_APP_PLAID_PUBLIC_KEY,
     }

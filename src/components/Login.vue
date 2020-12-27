@@ -34,13 +34,18 @@
           ></b-button>
         </b-input-group-append>
       </b-input-group>
-
-      <b-button class="mb-3" @click="login" style="width: 100px">
-        Login
-      </b-button>
-      <b-card-text class="text-danger">
-        {{ loginError }}
-      </b-card-text>
+      <span>
+        <b-button class="mb-3" @click="login" style="width: 100px">
+          Login
+        </b-button>
+        <b-card-text class="text-danger">
+          {{ loginError }}
+        </b-card-text>
+        <div class="text-secondary">
+          Login with these credentials to view sample data.<br />
+          Email: test@test.com <br />Password: 12345678
+        </div>
+      </span>
     </b-card>
 
     <b-card

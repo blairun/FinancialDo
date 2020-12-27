@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// IDEA Make it obvious to user when they are in Plaid sandbox mode vs dev mode
 // IDEA Add overlays for onboarding (https://github.com/usablica/intro.js) /
 // IDEA Make app more personal with icons/pictures/fonts (undraw.co drawkit.io ionicons.com)
 

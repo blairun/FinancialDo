@@ -33,11 +33,11 @@
         class="ml-auto"
         v-if="$store.state.isUserLoggedIn"
       >
-        <!-- down arrow rather than hamburger -->
-        <template v-slot:default="{ expanded }">
+        <!-- down/up arrows rather than hamburger -->
+        <!-- <template v-slot:default="{ expanded }">
           <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
           <b-icon v-else icon="chevron-bar-down"></b-icon>
-        </template>
+        </template> -->
       </b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav v-model="visible">

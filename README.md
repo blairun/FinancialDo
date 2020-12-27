@@ -1,4 +1,4 @@
-[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/). The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
+[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/). The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
 
 ---
 ## Getting Started
@@ -80,17 +80,17 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 
 ## Screenshots
 
-Homepage charts<br>
-![Screenshot1](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
+#### Homepage charts
+![Homepage charts](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
 
-Balances<br>
-![Screenshot2](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png)
+#### Balances view
+![Balances view](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png)
 
-Transactions<br>
-![Screenshot3](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png)
+#### Transactions view
+![Transactions view](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png)
 
-User Profile Page<br>
-![Screenshot4](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png)
+#### User Profile page
+![User Profile page](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png)
 
 ---
 ## Acknowledgments
