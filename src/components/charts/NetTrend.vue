@@ -10,6 +10,17 @@
         :title="isHovered ? $store.getters.appText.netTrendChart : ''"
       >
       </b-card-title>
+
+      <!-- allow user to choose different market indexes to compare with net worth trend -->
+      <div class="text-secondary ml-auto" style="width: 400">
+        <b-form-select
+          v-model="selected"
+          :options="options"
+          size="sm"
+          v-on:change="updateMarketData"
+          class="border-transparent"
+        ></b-form-select>
+      </div>
     </b-row>
 
     <chart-line
@@ -33,6 +44,14 @@ export default {
   data() {
     return {
       isHovered: false,
+      selected: 'TRRMX',
+      options: [
+        { value: null, text: 'Select market index', disabled: true },
+        { value: 'DIA', text: 'Compare with Dow' },
+        { value: 'SPY', text: 'Compare with S&P 500' },
+        { value: 'QQQ', text: 'Compare with Nasdaq' },
+        { value: 'TRRMX', text: 'Compare with T.RowePrice' },
+      ],
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
@@ -208,6 +227,16 @@ export default {
       this.$router.push({
         name: 'balances',
       })
+    },
+    async updateMarketData() {
+      this.$store.commit('updateAppText', {
+        prop: 'marketIndex',
+        text: this.selected,
+      })
+      await this.$store.dispatch(
+        'getMarketData',
+        this.$store.getters.appText.marketIndex
+      )
     },
   },
 

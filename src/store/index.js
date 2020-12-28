@@ -28,6 +28,7 @@ export default new Vuex.Store({
       netTrendChart: '',
       goalChart: '$1,111',
       transactionsFilter: '',
+      marketIndex: 'TRRMX',
     },
     booleanStates: {
       balancesUpdating: false,

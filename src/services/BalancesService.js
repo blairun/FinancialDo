@@ -25,7 +25,7 @@ export default {
   balances_date(date) {
     return Api().get(`balances_date/${date}`)
   },
-  market_data() {
-    return Api().get(`market_data`)
+  market_data(marketIndex) {
+    return Api().post('market_data', marketIndex)
   },
 }

@@ -101,9 +101,9 @@ export default {
     }
   },
 
-  async updateTransactions({ dispatch }, months = { months: 1 }) {
+  async updateTransactions({ dispatch }, months = 1) {
     try {
-      await TransactionsService.transactions_update(months)
+      await TransactionsService.transactions_update({ months: months })
       await dispatch('getTransactions')
     } catch (error) {
       console.error(error)
@@ -189,10 +189,14 @@ export default {
     }
   },
 
-  async getMarketData({ commit }) {
-    // IDEA ! allow user to choose different market indexes to compare with net worth trend
+  async getMarketData(
+    { commit, getters },
+    marketIndex = getters.appText.marketIndex
+  ) {
     try {
-      const data = (await BalancesService.market_data()).data
+      const data = (
+        await BalancesService.market_data({ marketIndex: marketIndex })
+      ).data
       // console.log(data)
       commit('updateMarketData', data.data)
     } catch (err) {
