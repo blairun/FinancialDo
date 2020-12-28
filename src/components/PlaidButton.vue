@@ -90,7 +90,7 @@ export default {
         state: true,
       })
       // grab 6 months of data during first fetch
-      await this.$store.dispatch('updateTransactions', { months: 6 })
+      await this.$store.dispatch('updateTransactions', 6)
       await this.$store.dispatch('getTransactionError')
       this.$store.commit('updateBooleanStates', {
         prop: 'transactionsUpdating',

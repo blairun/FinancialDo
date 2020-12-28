@@ -1,17 +1,20 @@
 <template>
   <transition name="fade" mode="out-in">
     <delay :from="Date.now()" :wait="1500">
+      <!-- Overlay gives user confirmation of saved account -->
       <b-card
         class="mx-lg-auto mb-4 mt-2"
         align-h="center"
         style="max-width: 1000px"
       >
-        <slot>
-          No account data yet 🤔<br /><br />
-          📊 Click the 'Add New Account' button to link your first account and
-          view charts about your data 📊</slot
-        >
-        <plaid-button class="mt-4" />
+        <b-overlay :show="isBusy" rounded="sm">
+          <slot>
+            No account data yet 🤔<br /><br />
+            📊 Click the 'Add New Account' button to link your first account and
+            view charts about your data 📊</slot
+          >
+          <plaid-button class="mt-4" />
+        </b-overlay>
       </b-card>
     </delay>
   </transition>
@@ -26,6 +29,11 @@ export default {
   components: {
     PlaidButton,
     Delay,
+  },
+  computed: {
+    isBusy() {
+      return this.$store.getters.booleanStates.itemUpdating
+    },
   },
 }
 </script>

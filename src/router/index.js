@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Landing from '@/components/Landing'
 import Login from '@/components/Login'
 import store from '../store/index'
 
@@ -71,6 +72,15 @@ const routes = [
     },
   },
   {
+    path: '/landing',
+    name: 'landing',
+    component: Landing,
+    meta: {
+      title: 'FinancialVue - Landing',
+      guest: true,
+    },
+  },
+  {
     path: '/login',
     name: 'login',
     component: Login,
@@ -96,11 +106,14 @@ const router = new VueRouter({
 
 // https://www.digitalocean.com/community/tutorials/how-to-set-up-vue-js-authentication-and-route-handling-using-vue-router
 router.beforeEach((to, from, next) => {
+  // console.log(to)
+  // console.log(from)
+  // console.log(next)
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    // console.log(!store.state.isUserLoggedIn);
+    // console.log(!store.state.isUserLoggedIn)
     if (!store.state.isUserLoggedIn) {
       next({
-        path: '/login',
+        path: '/landing',
         params: { nextUrl: to.fullPath },
       })
     } else {

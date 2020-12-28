@@ -6,11 +6,6 @@
       title="Sign in"
       style="max-width: 500px"
     >
-      <!-- <login-fields
-        :password="password"
-        :email="email"
-        v-on:childToParent="emlPass"
-      /> -->
       <b-form-input
         type="email"
         label="Email"
@@ -18,7 +13,7 @@
         class="mb-3"
         id="feedback-user"
         v-model="email"
-        v-on:keyup="checkEnter"
+        v-on:keyup="checkLoginEnter"
       ></b-form-input>
       <b-input-group class="mb-3">
         <b-form-input
@@ -26,7 +21,7 @@
           label="Password"
           placeholder="Password"
           v-model="password"
-          v-on:keyup="checkEnter"
+          v-on:keyup="checkLoginEnter"
         ></b-form-input>
         <b-input-group-append>
           <b-button size="sm" type="password" @click="loginVisbility"
@@ -42,8 +37,8 @@
           {{ loginError }}
         </b-card-text>
         <div class="text-secondary">
-          Login with these credentials to view sample data.<br />
-          Email: test@test.com <br />Password: 12345678
+          Use these credentials to view the app with prepopulated data.<br />
+          Email: test@123.com <br />Password: 12345678
         </div>
       </span>
     </b-card>
@@ -59,12 +54,8 @@
           class="mb-3"
           placeholder="Username"
           v-model="newUsername"
+          v-on:keyup="checkRegisterEnter"
         ></b-form-input>
-        <!-- <login-fields
-          :password="newPassword"
-          :email="newEmail"
-          v-on:childToParent="newEmlPass"
-        /> -->
         <b-form-input
           type="email"
           label="Email"
@@ -72,6 +63,7 @@
           class="mb-3"
           id="feedback-user"
           v-model="newEmail"
+          v-on:keyup="checkRegisterEnter"
         ></b-form-input>
         <b-input-group class="mb-3">
           <b-form-input
@@ -79,6 +71,7 @@
             label="Password"
             placeholder="Password"
             v-model="newPassword"
+            v-on:keyup="checkRegisterEnter"
           ></b-form-input>
           <b-input-group-append>
             <!-- variant="outline-secondary" -->
@@ -95,7 +88,13 @@
         Register
       </b-button>
 
-      <div class="text-danger" v-html="registrationError" />
+      <p class="text-danger" v-html="registrationError" />
+
+      <div class="text-secondary">
+        Register to start fresh and see how the app works as a new user.<br />Connect
+        to sample data from real financial institutions.<br />Data in this
+        sandboxed environment may be regularly purged.
+      </div>
     </b-card>
     <template></template>
   </div>
@@ -173,24 +172,16 @@ export default {
       this.registerEyeconVis =
         this.registerEyeconVis === 'eye-fill' ? 'eye-slash-fill' : 'eye-fill'
     },
-    // // Triggered when `childToParent` event is emitted by the child.
-    // emlPass(email, password) {
-    //   this.email = email;
-    //   this.password = password;
-    // },
-    // newEmlPass(email, password) {
-    //   this.newEmail = email;
-    //   this.newPassword = password;
-    // },
-    checkEnter(e) {
-      // console.log(e)
+    checkLoginEnter(e) {
       if (e.keyCode === 13) {
-        // console.log(e)
         this.login()
+      }
+    },
+    checkRegisterEnter(e) {
+      if (e.keyCode === 13) {
+        this.register()
       }
     },
   },
 }
 </script>
-
-<style scoped></style>

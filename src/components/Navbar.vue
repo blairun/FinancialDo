@@ -132,6 +132,9 @@
         </b-navbar-nav>
       </b-collapse>
       <b-navbar-nav class="ml-auto" v-if="!$store.state.isUserLoggedIn">
+        <b-nav-item href="#/login">Sign in</b-nav-item>
+      </b-navbar-nav>
+      <b-navbar-nav class="ml-3" v-if="!$store.state.isUserLoggedIn">
         <b-nav-item href="#/about">About</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
@@ -219,7 +222,7 @@ export default {
       // only really necessary when user was on the about page;
       // otherwise all other pages already redirect to login
       this.$router.push({
-        name: 'login',
+        name: 'landing',
       })
       // Vuex (and Vue) state is in memory while you are on the same browser page
       // and is reset when you reload the page. If you call router.go(), the page

@@ -1,4 +1,4 @@
-[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/). The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
+[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/) or on your local network. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
 
 ---
 ## Getting Started
@@ -30,13 +30,13 @@ Click this button to deploy the backend server and the database to the DigitalOc
 
 When prompted, fill in the following environment variables:
 
-- `PLAID_CLIENT_ID=` (see https://dashboard.plaid.com/overview/development)
+- `PLAID_CLIENT_ID=` (See https://dashboard.plaid.com/overview/development)
 - `PLAID_PUBLIC_KEY=`
 - `PLAID_SECRET_development=`
 - `PLAID_SECRET_sandbox=`
-- `JWT_SECRET=` (password chosen by developer)
-- `TIINGO_API_KEY=` (optional, see https://api.tiingo.com/)
-- `DB_NAME=${db.DATABASE}` (db connection params are on the DigitalOcean app dashboard)
+- `JWT_SECRET=` (Password chosen by developer)
+- `TIINGO_API_KEY=` (Optional. For market data. See https://api.tiingo.com/)
+- `DB_NAME=${db.DATABASE}` (Database connection params. See the DigitalOcean app dashboard)
 - `DB_USER=${db.USERNAME}`
 - `DB_PASS=${db.PASSWORD}`
 - `DB_HOST=${db.HOSTNAME}`
