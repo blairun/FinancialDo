@@ -102,7 +102,7 @@ export default {
       ],
       details: [
         { key: 'Account' },
-        { key: 'DollarAmount' },
+        { key: 'ExactAmount' },
         { key: 'Description' },
         // { key: "Pending" },
         { key: 'Category' },

@@ -140,6 +140,7 @@ export default new Vuex.Store({
 
       transactions.forEach(function(obj) {
         obj.DollarAmount = numeral(obj.Amount).format('$0,0')
+        obj.ExactAmount = numeral(obj.Amount).format('$0,0.00')
         obj._showDetails = false
         if (obj.Amount > 0.25 * max) {
           obj._rowVariant = 'success'
@@ -149,7 +150,7 @@ export default new Vuex.Store({
         } else if (obj.Amount < 0.1 * min) {
           obj._rowVariant = 'warning'
         }
-        if (obj.Pending === 1) {
+        if (obj.Pending) {
           obj._rowVariant = 'info'
         }
       })

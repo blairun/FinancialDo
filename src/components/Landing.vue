@@ -14,12 +14,12 @@
       no-wrap
     >
       <b-carousel-slide
-        caption="Simple and Safe"
+        caption="Simple and Secure"
         img-src="https://picsum.photos/1024?random=1"
       >
         <h4>
           Connect your financial accounts. <br />
-          Automatically update balance and transaction data.
+          Automatically update balances and transactions.
         </h4>
       </b-carousel-slide>
       <b-carousel-slide
@@ -86,7 +86,6 @@ export default {
   text-align: center;
 }
 @media (min-width: 992px) {
-  /* CSS that should be displayed if width is equal to or less than 800px goes here */
   .carousel {
     border-radius: 8px 8px 8px 8px;
     overflow: hidden;

@@ -17,18 +17,14 @@
             v-if="$store.state.user.plaidEnv === 'sandbox'"
             class="text-info"
           >
-            Your are using the<br />
             Plaid sandbox environment.<br />
             Use these credentials »<br />
-            username: user_good<br />
-            password: pass_good
+            user_good | pass_good
           </div>
           <div v-else class="text-danger">
-            You are using the<br />
             Plaid dev environment.<br />
             Use real credentials.<br />
-            This will deplete one<br />
-            of your 100 Plaid Items.
+            Will deplete 1 Plaid item.
           </div>
         </span>
       </template>

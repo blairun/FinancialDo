@@ -97,6 +97,7 @@
       </div>
     </b-card>
     <template></template>
+    <!-- IDEA add oauth sign in for google/github/others -->
   </div>
 </template>
 

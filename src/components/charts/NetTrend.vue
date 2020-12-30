@@ -12,13 +12,12 @@
       </b-card-title>
 
       <!-- allow user to choose different market indexes to compare with net worth trend -->
-      <div class="text-secondary ml-auto" style="width: 400">
+      <div class="text-secondary ml-lg-auto">
         <b-form-select
           v-model="selected"
           :options="options"
           size="sm"
           v-on:change="updateMarketData"
-          class="border-transparent"
         ></b-form-select>
       </div>
     </b-row>
@@ -59,7 +58,7 @@ export default {
         // events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
         events: ['click', 'touchmove'],
         animation: {
-          duration: 0,
+          // duration: 0,
         },
         // clicking net trend item takes you to balance snapshot
         onClick: async (evt, array) => {

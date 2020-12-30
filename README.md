@@ -16,7 +16,7 @@ You will need to sign up for [Plaid](https://plaid.com/) and apply for the devel
 
 ## Forking the Source Code
 
-To use all the features of App Platform, you need to be running against your own copy (github fork) of this code. In this case, you'll be forking two repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
+To use all the features of App Platform, you need to be running against your own copy of this code. In this case, you'll be [forking](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) two github repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
 
 After forking the repos, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`).
 
@@ -46,7 +46,7 @@ When prompted, fill in the following environment variables:
 
 #### Deploy Frontend Server
 
-From your newly created app, choose "Components, + Create Component, Static Site". Then choose the "FinancialVueDo" frontend client that you forked.
+From your newly created app, choose "Components" » "+ Create Component" » "Static Site". Then choose the "FinancialVueDo" frontend client that you previously forked.
 
 When prompted for Branch, choose  "main".
 
@@ -72,7 +72,7 @@ Run `yarn install` in the client folder to install Node.js dependencies.
 Create an `.env` file in the root directory. Variables in this file will be loaded as environment variables. Add these variables:
 
 - `VUE_APP_PLAID_PUBLIC_KEY=` (see https://dashboard.plaid.com/overview/development)
-- `VUE_APP_API=http://localhost:3000/`
+- `VUE_APP_API=http://localhost:8880/`
 
 Then from the client folder run `vue-cli-service serve` to compile and hot-reload the client.
 
