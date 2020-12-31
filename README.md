@@ -1,4 +1,4 @@
-[FinancialVue](https://github.com/blairun/FinancialVueDo) is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/) or on your local network. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
+**FinancialVue** is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/) or on your local network. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
 
 ---
 ## Getting Started
@@ -16,7 +16,7 @@ You will need to sign up for [Plaid](https://plaid.com/) and apply for the devel
 
 ## Forking the Source Code
 
-To use all the features of App Platform, you need to be running against your own copy of this code. In this case, you'll be [forking](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) two github repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
+To use all the features of DigitalOcean's App Platform, you need to be running against your own copy of this code. In this case, you'll be [forking](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) two github repos: [FinancialVueDo](https://github.com/blairun/FinancialVueDo) and [FinancialVueBeDo](https://github.com/blairun/FinancialVueBeDo) as a starting point for your own app.
 
 After forking the repos, you should now be viewing this README in your own github org (e.g. `https://github.com/<your-org>/FinancialVueDo`).
 
@@ -46,9 +46,9 @@ When prompted, fill in the following environment variables:
 
 #### Deploy Frontend Server
 
-From your newly created app, choose "Components" » "+ Create Component" » "Static Site". Then choose the "FinancialVueDo" frontend client that you previously forked.
+From your newly created app, choose `Components` »  `+ Create Component`  »  `Static Site`. Then choose the "FinancialVueDo" frontend client that you previously forked.
 
-When prompted for Branch, choose  "main".
+When prompted for Branch, choose  `main`.
 
 Edit HTTP Routes, and set the Routes to `/`.
 
@@ -84,6 +84,7 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 
 ## Screenshots
 
+TODO !! update screenshots
 #### Homepage charts
 ![Homepage charts](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
 

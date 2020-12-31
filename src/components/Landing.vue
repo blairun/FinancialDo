@@ -2,7 +2,7 @@
   <div class="pt-lg-5 pt-xs-2 mx-auto" style="max-width: 1024px">
     <b-carousel
       class="mx-lg-5 mx-xs-0"
-      :interval="6000"
+      :interval="7000"
       id="carousel-fade"
       style="text-shadow: 1px 1px 2px #333;"
       background="LightGray"
@@ -17,7 +17,7 @@
       <!-- img-src="https://picsum.photos/id/10/1024" -->
       <b-carousel-slide
         caption="Simple and Secure"
-        img-src="../assets/10-1024x1024.jpg"
+        img-src="../assets/994-1024x1024.jpg"
       >
         <h4>
           Connect your financial accounts. <br />
@@ -29,20 +29,20 @@
         img-src="../assets/480-1024x1024.jpg"
       >
         <h4>
-          Intuitive charts and tables to manage all your finances.<br />
+          Interactive charts and tables to manage all your finances.<br />
           No advertisers in sight.
         </h4>
       </b-carousel-slide>
       <b-carousel-slide
         caption="Open to All"
-        img-src="../assets/994-1024x1024.jpg"
+        img-src="../assets/10-1024x1024.jpg"
       >
-        <h4>
+        <h4 class="nav-link">
           Try out this sample app. <br />
           Or
           <a href="https://github.com/blairun/FinancialVueDo" target="blank"
-            >fork the code
-          </a>
+            >fork the code</a
+          >
           to create your own FinancialVue.
         </h4>
         <br />
@@ -54,7 +54,7 @@
     <div class="footer">
       <p>
         FinancialVue is an app for managing personal finances.
-        <a href="#/about" target="blank">Learn more here. </a>
+        <a href="#/about">Learn more here. </a>
       </p>
     </div>
   </div>
@@ -90,5 +90,8 @@ export default {
     border-radius: 8px 8px 8px 8px;
     overflow: hidden;
   }
+}
+.nav-link a {
+  color: #aaf4ff;
 }
 </style>

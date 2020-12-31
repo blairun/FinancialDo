@@ -12,7 +12,7 @@
         <b-card no-body class="mb-1" v-for="a in accounts" :key="a.key">
           <b-card-header header-tag="header" class="p-1" role="tab">
             <!-- expand/collapse institution accounts -->
-            <!-- IDEA ! Better Accounts ui. maybe modal popup for each balance -->
+            <!-- IDEA Better Accounts ui. maybe modal popup for each balance -->
             <!-- IDEA Research payment integrations like square/stripe -->
             <b-button
               variant="light-info"
@@ -86,7 +86,7 @@
                   :disabled="true"
                   >Delete</b-button
                 >
-                <!-- TODO ! Only update the account that has been changed -->
+                <!-- TODO ! Only update the account data that has been changed -->
                 <b-button @click="saveAccountMeta">Save Changes</b-button>
               </div>
 
