@@ -5,13 +5,6 @@
       <b-card-title class="title" v-on:click="navigate">
         {{ monthFormatted }} Budget
       </b-card-title>
-      <!-- <b-card-title
-        class="text-secondary ml-auto h6"
-        :title="
-          isHovered ? $store.getters.retrievalDates.transactionCharts : ''
-        "
-      >
-      </b-card-title> -->
       <!-- allow user to pick month -->
       <b-card-title class="ml-auto">
         <b-button-group size="sm">
@@ -19,6 +12,8 @@
             @click="back"
             variant="light"
             :disabled="monthBeforeDisabled"
+            v-b-tooltip.hover.bottom
+            title="previous month"
           >
             <b-icon icon="chevron-left"></b-icon>
           </b-button>
@@ -26,6 +21,8 @@
             @click="forward"
             variant="light"
             :disabled="monthAfterDisabled"
+            v-b-tooltip.hover.top
+            title="next month"
           >
             <b-icon icon="chevron-right"></b-icon>
           </b-button>
@@ -60,7 +57,7 @@ export default {
       monthBefore: -1,
       monthAfter: 1,
       monthBeforeDisabled: false,
-      monthAfterDisabled: true,
+      monthAfterDisabled: false,
       legendPosition: 'right',
       currentSpendColor: '#28a745',
       isHovered: false,
@@ -252,12 +249,12 @@ export default {
       }
       // limit history to one year back
       if (this.month > dayjs().subtract(12, 'M')) {
-        this.monthBeforeDisabled = false
-        this.monthAfterDisabled = false
+        // this.monthBeforeDisabled = false
+        // this.monthAfterDisabled = false
         this.dateRatio = 1
       } else {
-        this.monthBeforeDisabled = true
-        this.monthAfterDisabled = false
+        // this.monthBeforeDisabled = true
+        // this.monthAfterDisabled = false
         this.dateRatio = 1
       }
     },
@@ -269,12 +266,12 @@ export default {
         this.monthFormatted = dayjs(this.month).format('MMMM')
       }
       if (this.month < dayjs().subtract(1, 'M')) {
-        this.monthAfterDisabled = false
-        this.monthBeforeDisabled = false
+        // this.monthAfterDisabled = false
+        // this.monthBeforeDisabled = false
         this.dateRatio = 1
       } else {
-        this.monthAfterDisabled = true
-        this.monthBeforeDisabled = false
+        // this.monthAfterDisabled = true
+        // this.monthBeforeDisabled = false
         this.dateRatio = dayjs().date() / dayjs().daysInMonth()
       }
     },

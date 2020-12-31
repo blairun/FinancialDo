@@ -4,14 +4,30 @@
       <b-card-title class="title" v-on:click="navigate">
         Monthly Cash Flow
       </b-card-title>
-      <!-- IDEA click bars to automatically filter transactions -->
-      <!-- <b-card-title
-        class="text-secondary ml-auto h6"
-        :title="
-          isHovered ? $store.getters.retrievalDates.transactionCharts : ''
-        "
-      >
-      </b-card-title> -->
+      <!-- IDEA click bars to automatically filter transactions table -->
+      <!-- allow user to pick number of months to show -->
+      <b-card-title class="ml-auto">
+        <b-button-group size="sm">
+          <b-button
+            @click="remove"
+            variant="light"
+            :disabled="monthRemoveDisabled"
+            v-b-tooltip.hover.bottom
+            title="hide earliest month"
+          >
+            <b-icon icon="dash"></b-icon>
+          </b-button>
+          <b-button
+            @click="add"
+            variant="light"
+            :disabled="monthAddDisabled"
+            v-b-tooltip.hover.top
+            title="show earlier month"
+          >
+            <b-icon icon="plus"></b-icon>
+          </b-button>
+        </b-button-group>
+      </b-card-title>
     </b-row>
     <chart-bar :chart-data="datacollection" :options="chartOptions"></chart-bar>
   </b-card>
@@ -32,6 +48,9 @@ export default {
   data() {
     return {
       isHovered: false,
+      monthCount: 7,
+      monthRemoveDisabled: false,
+      monthAddDisabled: false,
       chartOptions: {
         responsive: true,
         maintainAspectRatio: false,
@@ -139,6 +158,26 @@ export default {
         name: 'transactions',
       })
     },
+    add() {
+      // console.log('adds')
+      // console.log(this.monthCount)
+      // console.log(this.monthQty)
+      if (this.monthCount < 12 && this.monthCount < this.monthQty) {
+        console.log('true')
+        this.monthCount += 1
+      }
+      // this.monthRemoveDisabled = false
+      // if (this.monthCount === 12) {
+      //   this.monthAddDisabled = true
+      // }
+    },
+    remove() {
+      if (this.monthCount > 2) this.monthCount -= 1
+      // this.monthAddDisabled = false
+      // if (this.monthCount === 2) {
+      //   this.monthRemoveDisabled = true
+      // }
+    },
   },
 
   computed: {
@@ -216,11 +255,14 @@ export default {
         months: months,
       }
     },
-
+    // get count of months for use in add/remove buttons
+    monthQty() {
+      return this.items.months.length
+    },
     datacollection() {
       const i = this.items
       // IDEA ! make month count dynamic
-      const cnt = 7
+      const cnt = this.monthCount
       const income = i.income.slice(0, cnt)
       // console.log(income);
       const spend = i.spend.slice(0, cnt)

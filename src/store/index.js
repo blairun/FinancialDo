@@ -7,7 +7,9 @@ import actions from './actions'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  strict: true,
+  // strict: false suppresses Error: [vuex] do not mutate vuex store state outside mutation handlers.
+  // See https://stackoverflow.com/questions/50999741/issue-with-show-details-on-bootstrap-vue-table
+  strict: false,
   // persistent login data, but not other data so that it is force refreshed on each load:
   plugins: [
     createPersistedState({ paths: ['user', 'isUserLoggedIn', 'token'] }),
