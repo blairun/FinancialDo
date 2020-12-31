@@ -3,13 +3,13 @@
 ---
 ## Getting Started
 
-These steps will get this application running for you using DigitalOcean. **Note that following these steps will result in charges for the use of DigitalOcean services**
+These steps will get this application running for you using DigitalOcean. **Note that following these steps will result in charges for the use of DigitalOcean services.**
 
 
 ## Requirements
 
 #### DigitalOcean
-You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new
+You need a DigitalOcean account. If you don't already have one, you can sign up at https://cloud.digitalocean.com/registrations/new.
 
 #### Plaid
 You will need to sign up for [Plaid](https://plaid.com/) and apply for the development plan. It may take a day to get approved. Sign up is free and limited to 100 items (i.e. banks), so it should be more than enough for personal use.
@@ -59,7 +59,11 @@ Edit Environment Variables by adding the following:
 
 ## Making Changes to Your App
 
-As long as you left the default Autodeploy option enabled when you first launched this app, you can now make code changes and see them automatically reflected in your live application. You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/apps/.
+As long as you left the default Autodeploy option enabled when you first launched this app, you can now make code changes and see them automatically reflected in your live application. You can learn more about the App Platform and how to manage and update your application at https://www.digitalocean.com/docs/app-platform/.
+
+#### Sandbox vs real financial data
+
+By default, all user accounts use the Plaid sandbox environment. To connect to real financial data, you will need to open the User table in the database (via SQL or with a database manager like DBeaver) and change the user's "PlaidEnv" field from "sandbox" to "development". Each of the user's new Plaid connections will now use up 1 of your 100 Plaid developer Items.
 
 ---
 

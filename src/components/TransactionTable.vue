@@ -11,6 +11,7 @@
         <b-input-group>
           <b-form-input
             v-model="filter"
+            debounce="200"
             type="search"
             id="filterInput"
             placeholder="Type to Search"

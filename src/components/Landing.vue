@@ -13,9 +13,11 @@
       img-height="1024"
       no-wrap
     >
+      <!-- img-src="https://picsum.photos/1024?random=1" -->
+      <!-- img-src="https://picsum.photos/id/10/1024" -->
       <b-carousel-slide
         caption="Simple and Secure"
-        img-src="https://picsum.photos/1024?random=1"
+        img-src="../assets/10-1024x1024.jpg"
       >
         <h4>
           Connect your financial accounts. <br />
@@ -24,7 +26,7 @@
       </b-carousel-slide>
       <b-carousel-slide
         caption="Practical and Private"
-        img-src="https://picsum.photos/1024?random=2"
+        img-src="../assets/480-1024x1024.jpg"
       >
         <h4>
           Intuitive charts and tables to manage all your finances.<br />
@@ -33,7 +35,7 @@
       </b-carousel-slide>
       <b-carousel-slide
         caption="Open to All"
-        img-src="https://picsum.photos/1024?random=3"
+        img-src="../assets/994-1024x1024.jpg"
       >
         <h4>
           Try out this sample app. <br />
@@ -51,10 +53,8 @@
     </b-carousel>
     <div class="footer">
       <p>
-        FinancialVue is an application for managing personal finances.
-        <a href="https://github.com/blairun/FinancialVueDo" target="blank"
-          >Learn more here.
-        </a>
+        FinancialVue is an app for managing personal finances.
+        <a href="#/about" target="blank">Learn more here. </a>
       </p>
     </div>
   </div>

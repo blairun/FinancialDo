@@ -93,7 +93,7 @@
       <div class="text-secondary">
         Register to start fresh and see how the app works as a new user.<br />Connect
         to sample data from real financial institutions.<br />Data in this
-        sandboxed environment may be regularly purged.
+        sandbox environment may occasionally be purged.
       </div>
     </b-card>
     <template></template>
