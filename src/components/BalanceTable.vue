@@ -1,9 +1,7 @@
 <template>
   <div class="balance-table px-3">
     <no-data-warning v-if="items.length === 0">
-      No Balance data yet 🤔<br /><br />
-      💰 Click the 'Add New Account' button to link your first account and view
-      balances 💰
+      No data yet. Add an account to start viewing your balances 💰
     </no-data-warning>
 
     <!-- IDEA Ctrl click for quick balance calculator or shift click balances to see total -->

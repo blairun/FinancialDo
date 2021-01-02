@@ -222,7 +222,7 @@ export default {
       // only really necessary when user was on the about page;
       // otherwise all other pages already redirect to login
       this.$router.push({
-        name: 'landing',
+        name: 'login',
       })
       // Vuex (and Vue) state is in memory while you are on the same browser page
       // and is reset when you reload the page. If you call router.go(), the page

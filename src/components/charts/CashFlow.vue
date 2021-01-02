@@ -163,7 +163,6 @@ export default {
       // console.log(this.monthCount)
       // console.log(this.monthQty)
       if (this.monthCount < 12 && this.monthCount < this.monthQty) {
-        console.log('true')
         this.monthCount += 1
       }
       // this.monthRemoveDisabled = false
@@ -172,6 +171,8 @@ export default {
       // }
     },
     remove() {
+      // Sync monthCount with monthQty, so '-' button works even if monthCount > monthQty
+      if (this.monthCount > this.monthQty) this.monthCount = this.monthQty
       if (this.monthCount > 2) this.monthCount -= 1
       // this.monthAddDisabled = false
       // if (this.monthCount === 2) {
@@ -179,7 +180,6 @@ export default {
       // }
     },
   },
-
   computed: {
     items() {
       // console.log('flow computed')
@@ -261,7 +261,6 @@ export default {
     },
     datacollection() {
       const i = this.items
-      // IDEA ! make month count dynamic
       const cnt = this.monthCount
       const income = i.income.slice(0, cnt)
       // console.log(income);

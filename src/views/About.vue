@@ -1,19 +1,23 @@
 <template>
-  <div class="about py-4">
-    <!-- <h3>This is an about page</h3> -->
-    <div class="mx-5">
-      <vue-markdown :source="fileContent" />
-    </div>
+  <div class="about py-4 mx-lg-auto mx-5" style="max-width: 992px">
+    <!-- <VueShowdown markdown="**Testing 123**   :)  :smile" /> -->
+    <!-- flavor="github" -->
+    <!-- :options="{ emoji: true }" -->
+    <!-- target="blank -->
+    <vue-markdown :source="fileContent" />
+    <!-- <vue-showdown :markdown="fileContent" /> -->
   </div>
 </template>
 
 <script>
 import VueMarkdown from 'vue-markdown'
+// import { VueShowdown } from 'vue-showdown'
 import mdFile from '../../README.md'
 
 export default {
   components: {
     VueMarkdown,
+    // VueShowdown,
   },
   data() {
     return {
@@ -38,5 +42,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

@@ -2,6 +2,7 @@
   <transition name="fade" mode="out-in">
     <delay :from="Date.now()" :wait="1500">
       <!-- Overlay gives user confirmation of saved account -->
+      <!-- TODO ! smooth transition; bump down items below this warning -->
       <b-card
         class="mx-lg-auto mb-4 mt-2"
         align-h="center"
@@ -9,9 +10,7 @@
       >
         <b-overlay :show="isBusy" rounded="sm">
           <slot>
-            No account data yet 🤔<br /><br />
-            📊 Click the 'Add New Account' button to link your first account and
-            view charts about your data 📊</slot
+            No data yet. Add an account to start using FinancialVue 📊</slot
           >
           <plaid-button class="mt-4" />
         </b-overlay>

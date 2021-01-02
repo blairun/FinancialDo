@@ -53,12 +53,13 @@ export default {
         state: true,
       })
       // save new plaid token/userid to db
-      const response = await AccountsService.add_plaid({
+      // const response = await AccountsService.add_plaid({
+      await AccountsService.add_plaid({
         UserID: this.$store.getters.user.id,
         ItemName: metadata.institution.name,
         PlaidToken: token,
       })
-      console.log(response)
+      // console.log(response)
       // refresh balance, transaction and account data
       // update balances
       this.$store.commit('updateAppText', {

@@ -1,4 +1,4 @@
-**FinancialVue** is a web app for automatically updating and tracking personal finances. The app is designed to run on [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/) or on your local network. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
+**FinancialVue** is a web app for automatically updating and tracking personal finances. It is designed to run on the [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform/) or on your local network. The front end client is a static site built with Vue.js and the backend is a Node.js server connected to a PostgreSQL database. Financial data is retrieved via the [Plaid API](https://plaid.com/).
 
 ---
 ## Getting Started
@@ -84,18 +84,19 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 
 ## Screenshots
 
-TODO !! update screenshots
+TODO ! update screenshots
+
 #### Homepage charts
-![Homepage charts](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png)
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 400px" width="100%" height="auto"> 
 
 #### Balances view
-![Balances view](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png)
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png" style="max-width: 400px" width="100%" height="auto"> 
 
 #### Transactions view
-![Transactions view](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png)
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 400px" width="100%" height="auto"> 
 
 #### User Profile page
-![User Profile page](https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png)
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 400px" width="100%" height="auto"> 
 
 ---
 ## Acknowledgments

@@ -1,7 +1,7 @@
 module.exports = {
   configureWebpack: {
     module: {
-      // enable loading markdown file for About page
+      // parse markdown file for About page
       rules: [
         {
           test: /\.md$/i,
