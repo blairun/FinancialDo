@@ -8,8 +8,8 @@ export default {
   update_plaid(credentials) {
     return Api().post('plaid_update', credentials)
   },
-  remove_plaid(credentials) {
-    return Api().post('plaid_remove', credentials)
+  remove_plaid(plaidId) {
+    return Api().post('plaid_remove', plaidId)
   },
   account_metas() {
     return Api().get(`account_metas`)

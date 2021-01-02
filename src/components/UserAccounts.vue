@@ -78,14 +78,12 @@
                   <!-- class="float-right" -->
                 </template>
               </b-table>
-              <!-- TODO implement delete account button -->
               <div class="d-flex justify-content-between mx-3">
-                <b-button
-                  variant="outline-danger"
-                  @click="removeAccount"
-                  :disabled="true"
-                  >Delete</b-button
-                >
+                <!-- delete account button with modal confirmation-->
+                <delete-account
+                  :plaidId="a.values[0].PlaidID"
+                  :accountName="a.key"
+                />
                 <!-- TODO ! Only update the account data that has been changed -->
                 <b-button @click="saveAccountMeta">Save Changes</b-button>
               </div>
@@ -97,11 +95,6 @@
             </b-card>
           </b-collapse>
         </b-card>
-        <!-- <b-button class="mt-4" href="https://192.168.1.150:9990" target="blank"
-        >Link New Account</b-button
-      > -->
-        <!-- <b-button class="mt-4" @click="addPlaid">Link New Account</b-button> -->
-
         <plaid-button class="mt-3 d-flex justify-content-end" />
       </b-overlay>
     </b-card>
@@ -113,14 +106,17 @@
 <script>
 import * as d3 from 'd3'
 import PlaidButton from '@/components/PlaidButton.vue'
+import DeleteAccount from '@/components/DeleteAccount.vue'
 import AccountsService from '../services/AccountsService'
 
 export default {
-  // TODO manual updates from website to custom accounts (e.g. cars, cash, and other material assets)
+  // TODO manual updates to custom accounts (e.g. cars, cash, and non-banking assets)
   name: 'user-accounts',
   components: {
     PlaidButton,
+    DeleteAccount,
   },
+
   data() {
     return {
       fields: [
@@ -175,8 +171,8 @@ export default {
     },
     async addPlaid() {
       try {
-        // const data = (await AuthenticationService.plaid());
-        // this.$store.dispatch("getPlaid");
+        // const data = (await AuthenticationService.plaid())
+        // this.$store.dispatch("getPlaid")
         this.$router.push({
           name: 'plaid',
         })
@@ -189,13 +185,13 @@ export default {
     async saveAccountMeta() {
       try {
         this.saveConfirmation = null
-        // console.log(this.items);
-        // console.log(this.accounts);
+        // console.log(this.items)
+        // console.log(this.accounts)
         await AccountsService.account_metas_update(this.items)
-        // const response = await AccountsService.account_metas_update(this.items);
+        // const response = await AccountsService.account_metas_update(this.items)
         // console.log(response);
         this.saveConfirmation = 'Account changes have been saved.'
-        // this.saveError = 'test error';
+        // this.saveError = 'test error'
         setTimeout(() => {
           this.saveConfirmation = null
         }, 5000)
@@ -204,9 +200,6 @@ export default {
         this.saveConfirmation = null
         this.saveError = error.response.data.error
       }
-    },
-    async removeAccount() {
-      // await AccountsService.account_metas_update(this.items);
     },
   },
   computed: {
@@ -221,8 +214,7 @@ export default {
         })
         // .entries(this.items);
         .entries(this.$store.getters.accountMetas)
-
-      // console.log(accountsByPlaidItem);
+      // console.log(accountsByPlaidItem)
       return accountsByPlaidItem
     },
     isBusy() {

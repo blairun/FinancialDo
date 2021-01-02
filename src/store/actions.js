@@ -31,7 +31,8 @@ export default {
         date: 'Refreshed ' + timeAgo,
       })
     } catch (error) {
-      console.error(error)
+      // console.error(error)
+      console.warn('getBalances warning')
     }
   },
 
@@ -87,7 +88,8 @@ export default {
         date: 'Refreshed ' + timeAgo,
       })
     } catch (error) {
-      console.error(error)
+      // console.error(error)
+      console.warn('getTransactions warning')
     }
   },
 
