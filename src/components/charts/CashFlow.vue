@@ -9,20 +9,20 @@
       <b-card-title class="ml-auto">
         <b-button-group size="sm">
           <b-button
-            @click="remove"
+            @click="zoomOut"
             variant="light"
             :disabled="monthRemoveDisabled"
             v-b-tooltip.hover.bottom
-            title="hide earliest month"
+            title="Zoom out"
           >
             <b-icon icon="dash"></b-icon>
           </b-button>
           <b-button
-            @click="add"
+            @click="zoomIn"
             variant="light"
             :disabled="monthAddDisabled"
             v-b-tooltip.hover.top
-            title="show earlier month"
+            title="Zoom in"
           >
             <b-icon icon="plus"></b-icon>
           </b-button>
@@ -158,26 +158,39 @@ export default {
         name: 'transactions',
       })
     },
-    add() {
+    zoomOut() {
       // console.log('adds')
       // console.log(this.monthCount)
       // console.log(this.monthQty)
       if (this.monthCount < 12 && this.monthCount < this.monthQty) {
         this.monthCount += 1
+      } else {
+        this.toast('Zoom out')
       }
       // this.monthRemoveDisabled = false
       // if (this.monthCount === 12) {
       //   this.monthAddDisabled = true
       // }
     },
-    remove() {
+    zoomIn() {
       // Sync monthCount with monthQty, so '-' button works even if monthCount > monthQty
       if (this.monthCount > this.monthQty) this.monthCount = this.monthQty
-      if (this.monthCount > 2) this.monthCount -= 1
+      if (this.monthCount > 2) {
+        this.monthCount -= 1
+      } else {
+        this.toast('Zoom in')
+      }
       // this.monthAddDisabled = false
       // if (this.monthCount === 2) {
       //   this.monthRemoveDisabled = true
       // }
+    },
+    toast(toaster) {
+      this.$bvToast.toast(`${toaster} - No more data`, {
+        toaster: 'b-toaster-bottom-center',
+        autoHideDelay: 3000,
+        noCloseButton: true,
+      })
     },
   },
   computed: {

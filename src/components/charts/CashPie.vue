@@ -13,7 +13,7 @@
             variant="light"
             :disabled="monthBeforeDisabled"
             v-b-tooltip.hover.bottom
-            title="previous month"
+            title="Previous month"
           >
             <b-icon icon="chevron-left"></b-icon>
           </b-button>
@@ -22,7 +22,7 @@
             variant="light"
             :disabled="monthAfterDisabled"
             v-b-tooltip.hover.top
-            title="next month"
+            title="Next month"
           >
             <b-icon icon="chevron-right"></b-icon>
           </b-button>
@@ -65,36 +65,9 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         normalized: true,
-        // events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
-        // animation: {
-        //   duration: 0,
-        // },
         rotation: Math.PI,
         cutoutPercentage: 30,
         circumference: 1 * Math.PI,
-
-        // // clicking white donuts takes you to current month's transactions
-        // onClick: async (evt, array) => {
-        //   // console.log(array)
-        //   // console.log(evt)
-        //   try {
-        //     // if (array.length != 0) {
-        //     if (array[0]._datasetIndex > 1) {
-        //       this.$store.commit('updateAppText', {
-        //         prop: 'transactionsFilter',
-        //         text: dayjs().format('YYYY-MM'),
-        //       })
-        //       this.$router.push({
-        //         name: 'transactions',
-        //       })
-        //     } else {
-        //       // otherwise clicking on the legend would also navigate to transactions
-        //       // console.log('You selected the background!')
-        //     }
-        //   } catch (error) {
-        //     //  console.log(error);
-        //   }
-        // },
 
         plugins: {
           // Change options for ALL labels of THIS CHART
@@ -124,16 +97,6 @@ export default {
                 font: {
                   size: 20,
                 },
-                // font: (data) => {
-                //   if (this.highlightCurrentData(data) === 'over') {
-                //     return {
-                //       size: 20,
-                //       // style: 'italic',
-                //       // style: 'bold',
-                //     }
-                //   }
-                //   return { size: 20 }
-                // },
               },
             },
           },
@@ -246,6 +209,8 @@ export default {
         this.monthAfter -= 1
         this.month = dayjs(this.month).subtract(1, 'M')
         this.monthFormatted = dayjs(this.month).format('MMMM')
+      } else {
+        this.toast('Backward')
       }
       // limit history to one year back
       if (this.month > dayjs().subtract(12, 'M')) {
@@ -264,6 +229,8 @@ export default {
         this.monthAfter += 1
         this.month = dayjs(this.month).add(1, 'M')
         this.monthFormatted = dayjs(this.month).format('MMMM')
+      } else {
+        this.toast('Forward')
       }
       if (this.month < dayjs().subtract(1, 'M')) {
         // this.monthAfterDisabled = false
@@ -274,6 +241,13 @@ export default {
         // this.monthBeforeDisabled = false
         this.dateRatio = dayjs().date() / dayjs().daysInMonth()
       }
+    },
+    toast(toaster) {
+      this.$bvToast.toast(`${toaster} - No more data`, {
+        toaster: 'b-toaster-bottom-center',
+        autoHideDelay: 3000,
+        noCloseButton: true,
+      })
     },
     highlightCurrentData(data) {
       if (data.datasetIndex === 0) {
@@ -289,15 +263,10 @@ export default {
           return 'under'
         }
       }
-      // return false
     },
   },
 
   computed: {
-    // currentMonth() {
-    //   return dayjs().format('MMMM')
-    // },
-
     items() {
       // console.log('pie computed')
       // categorize transactions
