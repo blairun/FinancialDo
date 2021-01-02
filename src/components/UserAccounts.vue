@@ -1,6 +1,5 @@
 <template>
   <div class="pt-4">
-    <!-- :show="isBusy" -->
     <b-card
       class="mx-lg-auto mb-4"
       align-h="center"
@@ -12,7 +11,6 @@
         <b-card no-body class="mb-1" v-for="a in accounts" :key="a.key">
           <b-card-header header-tag="header" class="p-1" role="tab">
             <!-- expand/collapse institution accounts -->
-            <!-- IDEA Better Accounts ui. maybe modal popup for each balance -->
             <!-- IDEA Research payment integrations like square/stripe -->
             <b-button
               variant="light-info"
@@ -223,5 +221,3 @@ export default {
   },
 }
 </script>
-
-<style></style>

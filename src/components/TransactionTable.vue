@@ -1,7 +1,7 @@
 <template>
   <div class="transaction-table px-3">
     <no-data-warning v-if="items.length === 0">
-      No data yet. Add an account to start viewing your transactions 💸
+      No data yet. Connect an account to start viewing your transactions 💸
     </no-data-warning>
 
     <span v-if="items.length > 0">

@@ -81,7 +81,9 @@ export default {
           },
         },
 
-        // FIXME !! Annotations broke. Try it with real data?
+        // FIXME Annotations broken in chartjs 2.9.x. fix:
+        // https://github.com/chartjs/chartjs-plugin-annotation/issues/265
+        // yarn add blairun/chartjs-plugin-annotation#v2
         annotation: {
           annotations: [
             {

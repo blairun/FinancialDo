@@ -103,3 +103,7 @@ TODO ! update screenshots
 
 - [build-your-own-mint](https://github.com/yyx990803/build-your-own-mint) was the starting point for plaid server code.
 - [tab-tracker](https://github.com/codyseibert/tab-tracker) was a starting point for client/server data transfer.
+
+## License
+
+Chart.Annotation.js is available under the [MIT license](http://opensource.org/licenses/MIT).

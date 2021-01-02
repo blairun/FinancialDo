@@ -9,7 +9,7 @@
     >
       <template slot="button" slot-scope="props">
         <b-button @click="props.onClick" style="width: 200px"
-          >Add New Account</b-button
+          >Connect New Account</b-button
         >
         <!-- Make it obvious to user when they are in Plaid sandbox mode vs dev mode -->
         <span style="width: 200px">
