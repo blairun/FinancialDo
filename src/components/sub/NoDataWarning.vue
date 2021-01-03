@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import PlaidButton from '@/components/PlaidButton.vue'
+import PlaidButton from '@/components/sub/PlaidButton.vue'
 import Delay from 'vue-delay'
 
 export default {

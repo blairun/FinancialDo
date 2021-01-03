@@ -14,8 +14,8 @@
 
 <script>
 import TransactionTable from '@/components/TransactionTable.vue'
-import RefreshedTimer from '@/components/RefreshedTimer.vue'
-import PlaidError from '@/components/PlaidError.vue'
+import RefreshedTimer from '@/components/sub/RefreshedTimer.vue'
+import PlaidError from '@/components/sub/PlaidError.vue'
 import BackToTop from 'vue-backtotop'
 
 export default {

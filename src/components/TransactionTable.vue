@@ -80,7 +80,7 @@
 
 <script>
 import numeral from 'numeral'
-import NoDataWarning from '@/components/NoDataWarning.vue'
+import NoDataWarning from '@/components/sub/NoDataWarning.vue'
 
 export default {
   name: 'transaction-table',

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import NoDataWarning from '@/components/NoDataWarning.vue'
+import NoDataWarning from '@/components/sub/NoDataWarning.vue'
 import UserAccounts from '@/components/UserAccounts.vue'
 import UserSettings from '@/components/UserSettings.vue'
 import UserProfile from '@/components/UserProfile.vue'

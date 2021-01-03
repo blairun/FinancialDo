@@ -74,7 +74,7 @@
 
 <script>
 import dayjs from 'dayjs'
-import NoDataWarning from '@/components/NoDataWarning.vue'
+import NoDataWarning from '@/components/sub/NoDataWarning.vue'
 
 export default {
   name: 'balance-table',

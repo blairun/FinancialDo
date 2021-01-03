@@ -29,6 +29,7 @@
     </b-row>
 
     <!-- :style="empty ? 'display:none' : 'display:block'" -->
+    <!-- IDEA Update net worth when clicking on net tend -->
     <chart-line
       :chart-data="datacollection"
       :options="chartOptions"

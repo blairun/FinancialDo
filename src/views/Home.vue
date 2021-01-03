@@ -14,8 +14,8 @@
 
 <script>
 // @ is an alias to /src
-import RefreshedTimer from '@/components/RefreshedTimer.vue'
-import NoDataWarning from '@/components/NoDataWarning.vue'
+import RefreshedTimer from '@/components/sub/RefreshedTimer.vue'
+import NoDataWarning from '@/components/sub/NoDataWarning.vue'
 import ChartCashFlow from '@/components/charts/CashFlow.vue'
 import ChartCashPie from '@/components/charts/CashPie.vue'
 import ChartNetWorth from '@/components/charts/NetWorth.vue'

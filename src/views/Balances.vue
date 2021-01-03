@@ -8,8 +8,8 @@
 
 <script>
 import BalanceTable from '@/components/BalanceTable.vue'
-import RefreshedTimer from '@/components/RefreshedTimer.vue'
-import PlaidError from '@/components/PlaidError.vue'
+import RefreshedTimer from '@/components/sub/RefreshedTimer.vue'
+import PlaidError from '@/components/sub/PlaidError.vue'
 
 export default {
   name: 'balances',

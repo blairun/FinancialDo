@@ -31,7 +31,8 @@
 </template>
 
 <script>
-import AccountsService from '../services/AccountsService'
+import AccountsService from '../../services/AccountsService'
+import UpdateAccounts from './UpdateAccounts'
 
 export default {
   props: {
@@ -82,58 +83,16 @@ export default {
     },
 
     async removeAccount() {
-      this.$store.commit('updateBooleanStates', {
-        prop: 'itemUpdating',
-        state: true,
-      })
-
       // console.log(this.plaidId)
-      await AccountsService.remove_plaid({
-        plaidId: this.plaidId,
-        accountName: this.accountName,
-      })
+      // arrow function to pass -this-
+      const removePlaid = async () => {
+        await AccountsService.remove_plaid({
+          plaidId: this.plaidId,
+          accountName: this.accountName,
+        })
+      }
 
-      // refresh balance, transaction and account data
-      // update balances
-      this.$store.commit('updateAppText', {
-        prop: 'balanceError',
-        text: '',
-      })
-      this.$store.commit('updateBooleanStates', {
-        prop: 'balancesUpdating',
-        state: true,
-      })
-      await this.$store.dispatch('updateBalances')
-      await this.$store.dispatch('getBalancesAll')
-      await this.$store.dispatch('getBalanceError')
-      this.$store.commit('updateBooleanStates', {
-        prop: 'balancesUpdating',
-        state: false,
-      })
-
-      // update transactions
-      this.$store.commit('updateAppText', {
-        prop: 'transactionError',
-        text: '',
-      })
-      this.$store.commit('updateBooleanStates', {
-        prop: 'transactionsUpdating',
-        state: true,
-      })
-      await this.$store.dispatch('updateTransactions')
-      await this.$store.dispatch('getTransactionError')
-      this.$store.commit('updateBooleanStates', {
-        prop: 'transactionsUpdating',
-        state: false,
-      })
-
-      // update list of institutions on user accounts page
-      // (after balance updates since that is where account metadata is injected)
-      await this.$store.dispatch('getAccountMetas')
-      this.$store.commit('updateBooleanStates', {
-        prop: 'itemUpdating',
-        state: false,
-      })
+      UpdateAccounts.updateAccounts(removePlaid, 1)
     },
   },
 }
