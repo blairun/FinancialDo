@@ -114,6 +114,7 @@ export default new Vuex.Store({
       accountMetas.forEach(function(obj) {
         obj._showDetails = false
         // obj._rowVariant = 'info'
+        obj.DollarBackupAmount = numeral(obj.BackupAmount).format('$0,0')
       })
 
       state.accountMetas = accountMetas

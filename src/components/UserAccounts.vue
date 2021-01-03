@@ -52,16 +52,25 @@
                       :key="d.key"
                     >
                       <b-form-group
+                        :label-for="d.key"
+                        :label="d.label"
                         label-cols-sm="3"
-                        :label="d.key"
                         label-align-sm="right"
                         label-align="left"
-                        :label-for="d.key"
+                        v-b-tooltip.hover
+                        :title="d.info"
                       >
                         <b-form-input
+                          v-if="d.key !== 'Closed'"
                           :id="d.key"
                           v-model="row.item[d.key]"
                         ></b-form-input>
+                        <b-form-checkbox
+                          class="float-left mt-2"
+                          v-if="d.key === 'Closed'"
+                          :id="d.key"
+                          v-model="row.item[d.key]"
+                        ></b-form-checkbox>
                       </b-form-group>
                     </b-form>
                   </b-card>
@@ -94,8 +103,8 @@
 
 <script>
 import * as d3 from 'd3'
-import PlaidButton from '@/components/PlaidButton.vue'
-import DeleteAccount from '@/components/DeleteAccount.vue'
+import PlaidButton from '@/components/sub/PlaidButton.vue'
+import DeleteAccount from '@/components/sub/DeleteAccount.vue'
 import AccountsService from '../services/AccountsService'
 
 export default {
@@ -110,28 +119,58 @@ export default {
     return {
       fields: [
         { key: 'FriendlyName', label: 'Name' },
-        { key: 'BackupAmount' },
+        { key: 'DollarBackupAmount', label: 'Backup Amount' },
         // { key: "BackupType" },
-        { key: 'Order' },
+        { key: 'Order', label: 'Sort Order' },
         // { key: "Closed" },
       ],
       details: [
         { key: 'FriendlyName', label: 'Name' },
         // { key: "Institution" },
-        { key: 'BackupType' },
-        { key: 'BackupAmount' },
-        { key: 'Link' },
+        {
+          key: 'BackupType',
+          label: 'Backup Type',
+          info: "Used on balance table, if Plaid doesn't provide account type",
+        },
+        {
+          key: 'BackupAmount',
+          label: 'Backup Amount',
+          info: "Used in Balances table, if Plaid doesn't provide amount",
+        },
+        {
+          key: 'Link',
+          label: 'Link',
+          info:
+            'Hyperlink shown on Balances table, for easy access to account website',
+        },
         // { key: "PlaidID" },
         // { key: "AccountID" },
-        { key: 'GoalID' },
+        {
+          key: 'GoalID',
+          label: 'Goal Id',
+          info: 'Goal Id that this account should count towards',
+        },
         // { key: "LoanID" },
-        { key: 'Order' },
+        {
+          key: 'Order',
+          label: 'Sort Order',
+          info: 'Order of accounts shown on the Balances table, low to high',
+        },
         // { key: "Cost" },
         // { key: "Salvage" },
         // { key: "Life" },
         // { key: "StartDate" },
-        { key: 'Notes' },
-        { key: 'Closed' },
+        {
+          key: 'Notes',
+          label: 'Notes',
+          info: 'General notes, not used elsewhere',
+        },
+        {
+          key: 'Closed',
+          label: 'Closed',
+          info:
+            'If checked, this account will no longer be shown on Balances table',
+        },
       ],
       // accounts: [],
       // sortBy: "Order",
@@ -167,6 +206,24 @@ export default {
         // const response = await AccountsService.account_metas_update(this.items)
         // console.log(response);
         this.saveConfirmation = 'Account changes have been saved.'
+
+        // update balances incase account(s) have been closed
+        this.$store.commit('updateAppText', {
+          prop: 'balanceError',
+          text: '',
+        })
+        this.$store.commit('updateBooleanStates', {
+          prop: 'balancesUpdating',
+          state: true,
+        })
+        await this.$store.dispatch('updateBalances')
+        await this.$store.dispatch('getBalancesAll')
+        await this.$store.dispatch('getBalanceError')
+        this.$store.commit('updateBooleanStates', {
+          prop: 'balancesUpdating',
+          state: false,
+        })
+
         // this.saveError = 'test error'
         setTimeout(() => {
           this.saveConfirmation = null
