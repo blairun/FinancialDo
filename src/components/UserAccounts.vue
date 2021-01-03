@@ -64,16 +64,7 @@
                         ></b-form-input>
                       </b-form-group>
                     </b-form>
-                    <!-- {{ row }} -->
-                    <!-- class="float-left" -->
-                    <!-- <b-button
-                      size="sm"
-                      @click="row.toggleDetails"
-                      variant="outline-secondary"
-                      >Hide Details</b-button
-                    > -->
                   </b-card>
-                  <!-- class="float-right" -->
                 </template>
               </b-table>
               <div class="d-flex justify-content-between mx-3">
@@ -166,19 +157,6 @@ export default {
     fetchItems() {
       // return the Promise from the action
       return this.$store.dispatch('getAccountMetas')
-    },
-    async addPlaid() {
-      try {
-        // const data = (await AuthenticationService.plaid())
-        // this.$store.dispatch("getPlaid")
-        this.$router.push({
-          name: 'plaid',
-        })
-        // console.log(data);
-        console.log('plaid worked')
-      } catch (error) {
-        console.log('plaid error')
-      }
     },
     async saveAccountMeta() {
       try {

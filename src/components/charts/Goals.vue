@@ -7,14 +7,21 @@
       <!-- adds popup to available savings number like spreadsheet -->
       <b-card-title
         class="text-secondary ml-auto h6"
+        :style="empty ? 'display:none' : 'display:block'"
         :title="isHovered ? $store.getters.appText.goalChart : ''"
         v-b-popover.hover.topleft="popover"
       >
+      </b-card-title>
+      <b-card-title
+        class="text-secondary ml-auto h5"
+        :style="empty ? 'display:block' : 'display:none'"
+        ><a href="#/user">Add new goals</a> to see them here.
       </b-card-title>
     </b-row>
     <chart-horizontal-bar
       class="fixed-height-chart"
       :chart-data="datacollection"
+      :style="empty ? 'display:none' : 'display:block'"
       :options="chartOptions"
     ></chart-horizontal-bar>
   </b-card>
@@ -311,9 +318,12 @@ export default {
       }
     },
 
+    empty() {
+      return this.items.names.length === 0 ? true : false
+    },
+
     // bootstrap colors:
     // ./client/node_modules/bootstrap/dist/css/bootstrap.css
-
     datacollection() {
       return {
         labels: this.items.names,

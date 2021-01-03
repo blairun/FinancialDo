@@ -1,9 +1,25 @@
 <template>
-  <div class="px-4 pt-4">
+  <div class="px-4 pt-4 pb-5">
     <no-data-warning v-if="items.length === 0" />
     <user-accounts v-if="items.length > 0" />
     <user-settings />
-    <user-profile />
+    <user-profile class="mb-4" />
+    <div
+      class="header-card pb-1"
+      style="background:#28a745"
+      v-if="$store.state.user.plaidEnv === 'sandbox'"
+    >
+      Using Plaid's sandbox environment. New account credentials » username:
+      user_good | password: pass_good
+    </div>
+    <div
+      class="header-card pb-1"
+      style="background:#dc3545"
+      v-if="$store.state.user.plaidEnv === 'development'"
+    >
+      Development environment. Use real credentials for new accounts. Will
+      deplete 1 of your 100 Plaid development Items.
+    </div>
   </div>
 </template>
 
@@ -47,3 +63,15 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* fixed is absolute to a browser */
+.header-card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+}
+</style>

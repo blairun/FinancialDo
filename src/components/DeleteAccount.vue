@@ -104,6 +104,7 @@ export default {
         state: true,
       })
       await this.$store.dispatch('updateBalances')
+      await this.$store.dispatch('getBalancesAll')
       await this.$store.dispatch('getBalanceError')
       this.$store.commit('updateBooleanStates', {
         prop: 'balancesUpdating',

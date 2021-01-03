@@ -7,21 +7,28 @@
       <!-- show difference in top right of chart-->
       <b-card-title
         class="text-secondary ml-auto h6"
+        :style="empty ? 'display:none' : 'display:block'"
         :title="isHovered ? $store.getters.appText.netTrendChart : ''"
       >
       </b-card-title>
-
       <!-- allow user to choose different market indexes to compare with net worth trend -->
       <div class="text-secondary ml-lg-auto">
         <b-form-select
           v-model="selected"
+          :style="empty ? 'display:none' : 'display:block'"
           :options="options"
           size="sm"
           v-on:change="updateMarketData"
         ></b-form-select>
       </div>
+      <b-card-title
+        class="text-secondary ml-auto h5"
+        :style="empty ? 'display:block' : 'display:none'"
+        ><a href="#/balances">Update balances</a> to see the trend.
+      </b-card-title>
     </b-row>
 
+    <!-- :style="empty ? 'display:none' : 'display:block'" -->
     <chart-line
       :chart-data="datacollection"
       :options="chartOptions"
@@ -239,6 +246,12 @@ export default {
     },
   },
 
+  // watch: {
+  //   empty(empty) {
+  //     console.log('empty changed: ' + empty)
+  //   },
+  // },
+
   computed: {
     items() {
       // console.log('trend computed')
@@ -343,6 +356,11 @@ export default {
         min: min,
         mdata: mdata,
       }
+    },
+
+    empty() {
+      // console.log(this.items.data)
+      return this.items.data.length < 2 ? true : false
     },
 
     datacollection() {

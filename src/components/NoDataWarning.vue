@@ -2,16 +2,17 @@
   <transition name="fade" mode="out-in">
     <delay :from="Date.now()" :wait="1500">
       <!-- Overlay gives user confirmation of saved account -->
-      <!-- TODO !! smooth transition; bump down items below this warning -->
+      <!-- TODO ! smooth transition; bump down items below this warning -->
       <b-card
         class="mx-lg-auto mb-4 mt-2"
         align-h="center"
         style="max-width: 1000px"
+        border-variant="success"
       >
         <b-overlay :show="isBusy" rounded="sm">
           <slot>
-            No data yet. Connect an account to start using FinancialVue 📊</slot
-          >
+            No data yet. Connect an account to start using FinancialVue 💵
+          </slot>
           <plaid-button class="mt-4" />
         </b-overlay>
       </b-card>

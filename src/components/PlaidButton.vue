@@ -1,4 +1,5 @@
 <template>
+  <!-- @click="envWarning" -->
   <section>
     <plaid-link
       :env="$store.getters.user.plaidEnv"
@@ -12,7 +13,7 @@
           >Connect New Account</b-button
         >
         <!-- Make it obvious to user when they are in Plaid sandbox mode vs dev mode -->
-        <span style="width: 200px">
+        <!-- <span style="width: 200px">
           <div
             v-if="$store.state.user.plaidEnv === 'sandbox'"
             class="text-info"
@@ -26,7 +27,7 @@
             Use real credentials.<br />
             Will deplete 1 Plaid item.
           </div>
-        </span>
+        </span> -->
       </template>
     </plaid-link>
   </section>
@@ -44,6 +45,13 @@ export default {
     }
   },
   methods: {
+    // envWarning() {
+    //   console.log('test')
+    //   this.$bvToast.toast(`test`, {
+    //     toaster: 'b-toaster-bottom-center',
+    //     autoHideDelay: 5000,
+    //   })
+    // },
     async onSuccess(token, metadata) {
       // console.log(token);
       // console.log(metadata);
@@ -71,6 +79,7 @@ export default {
         state: true,
       })
       await this.$store.dispatch('updateBalances')
+      await this.$store.dispatch('getBalancesAll')
       await this.$store.dispatch('getBalanceError')
       this.$store.commit('updateBooleanStates', {
         prop: 'balancesUpdating',

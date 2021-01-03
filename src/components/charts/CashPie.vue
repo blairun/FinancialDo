@@ -204,7 +204,9 @@ export default {
       })
     },
     back() {
-      if (this.month > dayjs().subtract(12, 'M')) {
+      // limit back button to month of oldest transaction
+      let monthQty = this.items.monthQty
+      if (this.month > dayjs().subtract(monthQty, 'M')) {
         this.monthBefore -= 1
         this.monthAfter -= 1
         this.month = dayjs(this.month).subtract(1, 'M')
@@ -212,8 +214,7 @@ export default {
       } else {
         this.toast('Backward')
       }
-      // limit history to one year back
-      if (this.month > dayjs().subtract(12, 'M')) {
+      if (this.month > dayjs().subtract(monthQty, 'M')) {
         // this.monthBeforeDisabled = false
         // this.monthAfterDisabled = false
         this.dateRatio = 1
@@ -272,6 +273,19 @@ export default {
       // categorize transactions
       const transactions = this.$store.getters.transactions
       // console.log(transactions)
+
+      // find the oldest transaction
+      // Will be last item since transactions come sorted from API
+      // console.log(transactions[transactions.length - 1])
+      let monthQty = 6
+      if (transactions[transactions.length - 1]) {
+        // console.log(transactions[transactions.length - 1].TransactionDate)
+        monthQty = dayjs().diff(
+          transactions[transactions.length - 1].TransactionDate,
+          'month'
+        )
+      }
+      // console.log('monthQty: ' + monthQty)
 
       function filter(begin = -1, end = 1) {
         const filtered = transactions
@@ -462,7 +476,9 @@ export default {
       // console.log(currentCategorized)
 
       // categorize last six months of transactions
-      let pastCategorized = categorize(pastFiltered, 6)
+      // or just the max number of transaction months if it is less than 6
+      let monthCnt = monthQty < 6 ? monthQty : 6
+      let pastCategorized = categorize(pastFiltered, monthCnt)
       // console.log(pastCategorized)
 
       // start these off with $0.01 so the chart has some non-zero value
@@ -491,7 +507,6 @@ export default {
       } else {
         this.changeColor('#28a745')
       }
-
       return {
         currentData: currentCategorized.spend,
         pastData: pastCategorized.spend,
@@ -501,8 +516,15 @@ export default {
         currentTransactions: currentCategorized.transactions,
         pastCount: pastCategorized.count,
         chartLabels: currentCategorized.labels,
+        monthQty: monthQty,
       }
     },
+
+    // monthQty() {
+    //   // console.log('this.items')
+    //   // console.log(this.items)
+    //   return 'this.items'
+    // },
 
     datacollection() {
       return {

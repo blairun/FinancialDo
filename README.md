@@ -84,8 +84,6 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 
 ## Screenshots
 
-TODO ! update screenshots
-
 #### Homepage charts
  <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 400px" width="100%" height="auto"> 
 
@@ -96,7 +94,7 @@ TODO ! update screenshots
  <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 400px" width="100%" height="auto"> 
 
 #### User Profile page
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 400px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png" style="max-width: 400px" width="100%" height="auto"> 
 
 ---
 ## Acknowledgments
@@ -106,4 +104,4 @@ TODO ! update screenshots
 
 ## License
 
-Chart.Annotation.js is available under the [MIT license](http://opensource.org/licenses/MIT).
+FinancialVue is available under the [MIT license](http://opensource.org/licenses/MIT).
