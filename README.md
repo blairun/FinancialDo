@@ -63,7 +63,7 @@ As long as you left the default Autodeploy option enabled when you first launche
 
 #### Sandbox vs real financial data
 
-By default, all user accounts use the Plaid sandbox environment. To connect to real financial data, you will need to open the User table in the database (via SQL or with a database manager like DBeaver) and change the user's "PlaidEnv" field from "sandbox" to "development". Each of the user's new Plaid connections will now use up 1 of your 100 Plaid developer Items.
+By default, all user accounts use the Plaid sandbox environment. To connect to real financial data, you will need to open the User table in the database (with a CLI tool or a database manager like DBeaver) and change the user's "PlaidEnv" field from "sandbox" to "development". Each of the user's new Plaid connections will now use up 1 of your 100 Plaid developer Items.
 
 ---
 
@@ -85,16 +85,16 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 ## Screenshots
 
 #### Homepage charts
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 400px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 600px" width="100%" height="auto"> 
 
 #### Balances view
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png" style="max-width: 400px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png" style="max-width: 600px" width="100%" height="auto"> 
 
 #### Transactions view
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 400px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 600px" width="100%" height="auto"> 
 
 #### User Profile page
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png" style="max-width: 400px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png" style="max-width: 600px" width="100%" height="auto"> 
 
 ---
 ## Acknowledgments
