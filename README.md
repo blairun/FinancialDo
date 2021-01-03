@@ -85,16 +85,16 @@ Then from the client folder run `vue-cli-service serve` to compile and hot-reloa
 ## Screenshots
 
 #### Homepage charts
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 600px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Home.png" style="max-width: 650px" width="100%" height="auto"> 
 
 #### Balances view
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png" style="max-width: 600px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Balances.png" style="max-width: 650px" width="100%" height="auto"> 
 
 #### Transactions view
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 600px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20Transactions.png" style="max-width: 650px" width="100%" height="auto"> 
 
 #### User Profile page
- <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png" style="max-width: 600px" width="100%" height="auto"> 
+ <img src="https://raw.githubusercontent.com/blairun/FinancialVueDo/main/public/FinancialVue%20-%20User%20Profile.png" style="max-width: 650px" width="100%" height="auto"> 
 
 ---
 ## Acknowledgments
