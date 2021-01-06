@@ -190,6 +190,8 @@ export default {
         toaster: 'b-toaster-bottom-center',
         autoHideDelay: 3000,
         noCloseButton: true,
+        variant: 'secondary',
+        appendToast: true,
       })
     },
   },

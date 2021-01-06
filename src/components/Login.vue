@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="py-5">
     <b-card
       class="mx-sm-auto mx-4 mb-4"
       align-h="center"
@@ -37,14 +37,15 @@
           {{ loginError }}
         </b-card-text>
         <div class="text-secondary">
-          Use these credentials to view the app with prepopulated data.<br />
+          Use these credentials to view prepopulated
+          <span class="text-danger">sample data</span>.<br />
           Email: test@123.com <br />Password: 12345678
         </div>
       </span>
     </b-card>
 
     <b-card
-      class="mx-sm-auto mx-4 mb-4"
+      class="mx-sm-auto mx-4 mb-5"
       align-h="center"
       style="max-width: 500px"
       title="Sign up"
@@ -92,12 +93,24 @@
 
       <div class="text-secondary">
         Register to start fresh and see how the app works as a new user.<br />Connect
-        to sample data from real financial institutions.<br />Data in this
-        sandbox environment may occasionally be purged.
+        to
+        <span class="text-danger">sample data</span>
+        from real financial institutions.<br />Data in this sandbox environment
+        may occasionally be purged.
       </div>
     </b-card>
-    <template></template>
     <!-- IDEA add oauth sign in for google/github/others -->
+
+    <div class="fixed-footer pb-1" style="background:#dc3545">
+      This is a demo app that uses
+      <a href="https://plaid.com/docs/sandbox/" target="blank"
+        >Plaid's sandbox environment</a
+      >. Run your own fork of
+      <a href="https://github.com/blairun/FinancialVueDo" target="blank"
+        >this project</a
+      >
+      to start connecting to real financial institutions.
+    </div>
   </div>
 </template>
 
@@ -186,3 +199,18 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+/* fixed is absolute to a browser */
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+}
+.fixed-footer a {
+  color: #5ae6fc;
+}
+</style>

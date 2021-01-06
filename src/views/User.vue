@@ -5,7 +5,7 @@
     <user-settings />
     <user-profile class="mb-4" />
     <div
-      class="header-card pb-1"
+      class="fixed-footer pb-1"
       style="background:#28a745"
       v-if="$store.state.user.plaidEnv === 'sandbox'"
     >
@@ -13,7 +13,7 @@
       user_good | password: pass_good
     </div>
     <div
-      class="header-card pb-1"
+      class="fixed-footer pb-1"
       style="background:#dc3545"
       v-if="$store.state.user.plaidEnv === 'development'"
     >
@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 /* fixed is absolute to a browser */
-.header-card {
+.fixed-footer {
   position: fixed;
   bottom: 0;
   left: 0;
