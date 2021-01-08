@@ -42,11 +42,17 @@ export default {
     ChartHorizontalBar,
   },
   data() {
-    let date = dayjs().format('MMM Do')
-    let year = dayjs().year()
-    let dateRatio = (dayjs().dayOfYear() / 365) * 100
-    // console.log(dateRatio);
+    let date = dayjs()
+    let dateFormatted = date.format('MMM Do')
+    let year = date.year()
+    let dateRatio = (date.dayOfYear() / 365) * 100
+    let datePosition = dateRatio > 50 ? 45 : -45
+    // console.log(dateRatio)
+    // console.log(datePosition)
     return {
+      // dateFormatted: date.format('MMM Do'),
+      // dateRation: dateRatio,
+      // datePosition: dateRatio > 50 ? 45 : -45,
       year: year,
       isHovered: false,
       popover: `Money currently available for goals.`,
@@ -70,7 +76,7 @@ export default {
               const { datasetIndex, dataIndex } = context
               return `${numeral(
                 data.originalData[datasetIndex][dataIndex]
-              ).format('$0.0a')}`
+              ).format('$0a')}`
             },
 
             anchor: 'start',
@@ -88,14 +94,14 @@ export default {
           },
         },
 
-        // FIXME Annotations broken in chartjs 2.9.x. fix:
+        // Annotations broken in chartjs 2.9.4. fix:
+        // https://github.com/apertureless/vue-chartjs/issues/673
         // https://github.com/chartjs/chartjs-plugin-annotation/issues/265
-        // yarn add blairun/chartjs-plugin-annotation#v2
         annotation: {
+          drawTime: 'afterDatasetsDraw',
           annotations: [
             {
               // drawTime: 'beforeDatasetsDraw',
-              drawTime: 'afterDatasetsDraw',
               type: 'line',
               mode: 'vertical',
               scaleID: 'x-axis-0',
@@ -112,10 +118,10 @@ export default {
                 fontSize: 20,
                 backgroundColor: 'rgba(0,0,0,0)',
                 fontColor: 'gray',
-                content: date,
+                content: dateFormatted,
                 position: 'top',
                 yAdjust: -6,
-                xAdjust: 45,
+                xAdjust: datePosition,
               },
             },
           ],

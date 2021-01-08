@@ -8,7 +8,12 @@
       v-bind="{ onSuccess }"
     >
       <template slot="button" slot-scope="props">
-        <b-button @click="props.onClick" style="width: 200px"
+        <b-button
+          @click="props.onClick"
+          style="width: 200px"
+          :variant="
+            $store.state.user.plaidEnv === 'sandbox' ? 'success' : 'danger'
+          "
           >Connect New Account</b-button
         >
         <!-- Make it obvious to user when they are in Plaid sandbox mode vs dev mode -->

@@ -120,6 +120,13 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
+    // don't allow login page if user is already logged in
+    if (store.state.isUserLoggedIn && to.name === 'login') {
+      next({
+        path: '/',
+        params: { nextUrl: to.fullPath },
+      })
+    }
     next()
   }
 })

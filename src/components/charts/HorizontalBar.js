@@ -11,11 +11,10 @@ export default {
   props: ['options'],
   mounted() {
     // load stacked first since datalabels depend on it
-    this.addPlugin({
-      chartStacked100,
-      chartDataLabels,
-      chartAnnotation,
-    })
+    this.addPlugin([chartStacked100, chartDataLabels])
+
+    // https://github.com/apertureless/vue-chartjs/issues/673
+    this.addPlugin(chartAnnotation)
     // this.chartData is created in the mixin.
     // If you want to pass options please create a local options object
     this.renderChart(this.chartData, this.options)
